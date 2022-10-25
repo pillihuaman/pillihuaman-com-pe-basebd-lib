@@ -44,7 +44,7 @@ public class ImagenSupportDaoImplement extends AbstractMongoDBRepositoryImpl<Ima
 		InputStream iss = new ByteArrayInputStream(detail.getFiles());
 		ByteArrayInputStream arrayIn = inputStreamToArrayInputStream(iss);
 
-		GridFSBucket gridFSFilesBucket = getGridFSBucket(Constants.COLLECTION_IMAGEN_FILES);
+		GridFSBucket gridFSFilesBucket = getGridFSBucket("files");
 		Document doc = new Document();
 		doc.put("id_imagen", detail.getIdImagen());
 		doc.put("id_head_imagen", detail.getIdHeadImagen());

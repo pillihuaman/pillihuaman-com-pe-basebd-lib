@@ -1,5 +1,6 @@
 D:\Gamachicas\pillihuaman-com-pe-basebd-lib\src\main\java\pillihuaman\com\basebd\userGeneral\domain\dao\UserGeneralRepositoy.java
 D:\Gamachicas\pillihuaman-com-pe-basebd-lib\src\main\java\pillihuaman\com\basebd\help\GenericList.java
+D:\Gamachicas\pillihuaman-com-pe-basebd-lib\src\main\java\pillihuaman\com\basebd\imagenProducer\domain\Metadata.java
 D:\Gamachicas\pillihuaman-com-pe-basebd-lib\src\main\java\pillihuaman\com\basebd\imagenTemp\domain\dao\ImagenTempDAO.java
 D:\Gamachicas\pillihuaman-com-pe-basebd-lib\src\main\java\pillihuaman\com\basebd\user\domain\dao\implement\UserDaoImplement.java
 D:\Gamachicas\pillihuaman-com-pe-basebd-lib\src\main\java\pillihuaman\com\basebd\config\MongoDBConexion.java

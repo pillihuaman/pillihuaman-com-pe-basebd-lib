@@ -14,4 +14,5 @@ public interface ImagenSupportDAO extends BaseMongoRepository<Imagen> {
 	Document saveImagenHeader(Imagen  request);
 	List<Imagen> getCorrelativeImagen(Imagen request);
 	ObjectId saveImagenFile(DetailImage detail) throws Exception;
+	List<Imagen> getTopImagen(int page ,int perpage);
 }

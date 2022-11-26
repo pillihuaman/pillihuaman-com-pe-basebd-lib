@@ -13,20 +13,42 @@ public class Imagen implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@BsonProperty(value = "_id")
 	private ObjectId id;
-	@BsonProperty(value = "description")
 	private String description;
-	@BsonProperty(value = "name")
 	private String name;
-	@BsonProperty(value = "id_user")
 	private int idUser;
-	@BsonProperty(value = "id_head_imagen")
-	private int idHeadImagen;
-	@BsonProperty(value = "id_System")
-	private int idSystem;
-	@BsonProperty(value = "id_product")
-	private int idProduct;
 
+	private int idHeadImagen;
+
+	private int idSystem;
+	private int idProduct;
+	private String uniqueKeyHash;
+	private  int countRanking;
+	private int clickCount;
 	private AuditEntity auditEntity;
+
+	public int getCountRanking() {
+		return countRanking;
+	}
+
+	public void setCountRanking(int countRanking) {
+		this.countRanking = countRanking;
+	}
+
+	public int getClickCount() {
+		return clickCount;
+	}
+
+	public void setClickCount(int clickCount) {
+		this.clickCount = clickCount;
+	}
+
+	public String getUniqueKeyHash() {
+		return uniqueKeyHash;
+	}
+
+	public void setUniqueKeyHash(String uniqueKeyHash) {
+		this.uniqueKeyHash = uniqueKeyHash;
+	}
 
 	public int getIdProduct() {
 		return idProduct;

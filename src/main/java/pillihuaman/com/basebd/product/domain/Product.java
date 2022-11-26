@@ -3,75 +3,42 @@ package pillihuaman.com.basebd.product.domain;
 import java.io.Serializable;
 import java.util.Date;
 
+import org.bson.codecs.pojo.annotations.BsonId;
 import org.bson.codecs.pojo.annotations.BsonProperty;
 import org.bson.types.ObjectId;
 import org.springframework.stereotype.Component;
+
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 
 import pillihuaman.com.basebd.help.AuditEntity;
 
 @Component
 public class Product implements Serializable {
 	private static final long serialVersionUID = 1L;
-	@BsonProperty(value = "_id")
-	private ObjectId id;
-	@BsonProperty(value = "description")
+	@BsonId
+	@JsonSerialize(using = ToStringSerializer.class)
+	private ObjectId _id;
 	private String description;
-	@BsonProperty(value = "name")
 	private String name;
-	@BsonProperty(value = "id_user")
 	private int idUser;
-	@BsonProperty(value = "id_price")
-	private int idPrice;
-	@BsonProperty(value = "id_imagen")
+	private float idPrice;
 	private int idImagen;
-	@BsonProperty(value = "idSystem")
 	private int idSystem;
-	@BsonProperty(value = "id_stock")
 	private int idStock;
-	@BsonProperty(value = "id_position")
 	private int idPosition;
-	@BsonProperty(value = "id_product")
 	private int idProduct;
-	@BsonProperty(value = "expiration_date")
 	private Date expirationDate;
-	@BsonProperty(value = "idType")
 	private int idType;
 
 	private AuditEntity auditEntity;
 
-	public Product() {
+	public ObjectId get_id() {
+		return _id;
 	}
 
-	public int getIdProduct() {
-		return idProduct;
-	}
-
-	public void setIdProduct(int idProduct) {
-		this.idProduct = idProduct;
-	}
-
-	public Date getExpirationDate() {
-		return expirationDate;
-	}
-
-	public void setExpirationDate(Date expirationDate) {
-		this.expirationDate = expirationDate;
-	}
-
-	public int getIdType() {
-		return idType;
-	}
-
-	public void setIdType(int idType) {
-		this.idType = idType;
-	}
-
-	public ObjectId getId() {
-		return id;
-	}
-
-	public void setId(ObjectId id) {
-		this.id = id;
+	public void set_id(ObjectId _id) {
+		this._id = _id;
 	}
 
 	public String getDescription() {
@@ -98,11 +65,11 @@ public class Product implements Serializable {
 		this.idUser = idUser;
 	}
 
-	public int getIdPrice() {
+	public float getIdPrice() {
 		return idPrice;
 	}
 
-	public void setIdPrice(int idPrice) {
+	public void setIdPrice(float idPrice) {
 		this.idPrice = idPrice;
 	}
 
@@ -138,12 +105,39 @@ public class Product implements Serializable {
 		this.idPosition = idPosition;
 	}
 
-	public AuditEntity docAud() {
+	public int getIdProduct() {
+		return idProduct;
+	}
+
+	public void setIdProduct(int idProduct) {
+		this.idProduct = idProduct;
+	}
+
+	public Date getExpirationDate() {
+		return expirationDate;
+	}
+
+	public void setExpirationDate(Date expirationDate) {
+		this.expirationDate = expirationDate;
+	}
+
+	public int getIdType() {
+		return idType;
+	}
+
+	public void setIdType(int idType) {
+		this.idType = idType;
+	}
+
+	public AuditEntity getAuditEntity() {
 		return auditEntity;
 	}
 
 	public void setAuditEntity(AuditEntity auditEntity) {
 		this.auditEntity = auditEntity;
 	}
+
+	
+
 
 }

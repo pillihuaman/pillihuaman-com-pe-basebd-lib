@@ -14,46 +14,35 @@ public class DetailImage implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@BsonProperty(value = "_id")
 	private ObjectId id;
-	@BsonProperty(value = "id_head_imagen")
 	private int idHeadImagen;
-	@BsonProperty(value = "id_imagen")
+
 	private int idImagen;
 	@BsonProperty(value = "name")
 	private String name;
-	@BsonProperty(value = "count_ranking")
-	private BigInteger countRanking;
-	@BsonProperty(value = "click_count")
-	private BigInteger clickCount;
+	private int countRanking;
 
-	@BsonProperty(value = "idType")
+	private int clickCount;
+
 	private int idType;
 
 	@BsonProperty(value = "files")
 	private byte[] files;
 
-	@BsonProperty(value = "id_detail")
-	private ObjectId idDetail;
-	
 
+	private ObjectId idDetail;
+
+	private String uniqueKeyHash;
 	@BsonProperty(value = "_object_id")
 	private ObjectId _objectId;
-	
-	private AuditEntity auditEntity;
 
-	public ObjectId get_objectId() {
-		return _objectId;
+	private  int index;
+
+	public int getIndex() {
+		return index;
 	}
 
-	public void set_objectId(ObjectId _objectId) {
-		this._objectId = _objectId;
-	}
-
-	public ObjectId getIdDetail() {
-		return idDetail;
-	}
-
-	public void setIdDetail(ObjectId idDetail) {
-		this.idDetail = idDetail;
+	public void setIndex(int index) {
+		this.index = index;
 	}
 
 	public ObjectId getId() {
@@ -88,19 +77,19 @@ public class DetailImage implements Serializable {
 		this.name = name;
 	}
 
-	public BigInteger getCountRanking() {
+	public int getCountRanking() {
 		return countRanking;
 	}
 
-	public void setCountRanking(BigInteger countRanking) {
+	public void setCountRanking(int countRanking) {
 		this.countRanking = countRanking;
 	}
 
-	public BigInteger getClickCount() {
+	public int getClickCount() {
 		return clickCount;
 	}
 
-	public void setClickCount(BigInteger clickCount) {
+	public void setClickCount(int clickCount) {
 		this.clickCount = clickCount;
 	}
 
@@ -120,12 +109,28 @@ public class DetailImage implements Serializable {
 		this.files = files;
 	}
 
-	public AuditEntity getAuditEntity() {
-		return auditEntity;
+	public ObjectId getIdDetail() {
+		return idDetail;
 	}
 
-	public void setAuditEntity(AuditEntity auditEntity) {
-		this.auditEntity = auditEntity;
+	public void setIdDetail(ObjectId idDetail) {
+		this.idDetail = idDetail;
+	}
+
+	public String getUniqueKeyHash() {
+		return uniqueKeyHash;
+	}
+
+	public void setUniqueKeyHash(String uniqueKeyHash) {
+		this.uniqueKeyHash = uniqueKeyHash;
+	}
+
+	public ObjectId get_objectId() {
+		return _objectId;
+	}
+
+	public void set_objectId(ObjectId _objectId) {
+		this._objectId = _objectId;
 	}
 
 	public DetailImage() {

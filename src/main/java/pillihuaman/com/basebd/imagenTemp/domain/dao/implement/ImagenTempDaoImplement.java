@@ -41,7 +41,7 @@ public class ImagenTempDaoImplement extends AbstractMongoDBRepositoryImpl<Imagen
 		InputStream iss = new ByteArrayInputStream(detail.getFiles());
 		ByteArrayInputStream arrayIn = inputStreamToArrayInputStream(iss);
 
-		GridFSBucket gridFSFilesBucket = getGridFSBucket(Constants.COLLECTION_IMAGEN_FILES);
+		GridFSBucket gridFSFilesBucket = getGridFSBucket("imagenTemp");
 		Document doc = new Document();
 		doc.put("id_temp", detail.getIdTemp());
 		GridFSUploadOptions options = new GridFSUploadOptions().metadata(doc);

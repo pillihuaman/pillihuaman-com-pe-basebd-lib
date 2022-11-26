@@ -34,10 +34,10 @@ public class ProductSupportDaoImplement extends AbstractMongoDBRepositoryImpl<Pr
 		request.setAuditEntity(aud);
 		doc.put("description", request.getDescription());
 		doc.put("name", request.getName());
-		doc.put("id_user", request.getIdUser());
-		doc.put("id_product", request.getIdProduct());
-		docAud.put("cod_usuRegis", aud.getCodUsuRegis());
-		docAud.put("fec_regis", aud.getFecRegis());
+		doc.put("idUser", request.getIdUser());
+		doc.put("idProduct", request.getIdProduct());
+		docAud.put("codUsuRegis", aud.getCodUsuRegis());
+		docAud.put("fecRegis", aud.getFecRegis());
 
 		doc.put("auditEntity", docAud);
 		save(doc);
@@ -59,5 +59,14 @@ public class ProductSupportDaoImplement extends AbstractMongoDBRepositoryImpl<Pr
 	public Class<Product> provideEntityClass() {
 		// TODO Auto-generated method stub
 		return Product.class;
+	}
+
+	@Override
+	public List<Product> getallProductbyUser(Product request) {
+		MongoCollection<Product> collection = getCollection(this.collectionName, Product.class);
+		Document query = new Document().append("idUser", request.getIdUser());
+		List<Product> lisProduct = collection.find(query, Product.class)
+				.into(new ArrayList<Product>());
+		return lisProduct;
 	}
 }

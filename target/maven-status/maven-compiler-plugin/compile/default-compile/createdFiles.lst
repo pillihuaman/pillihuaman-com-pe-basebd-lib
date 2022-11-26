@@ -19,6 +19,7 @@ pillihuaman\com\basebd\help\Constantes.class
 pillihuaman\com\basebd\log\Log4J2PropertiesConf.class
 pillihuaman\com\basebd\config\MongoDBClient.class
 pillihuaman\com\basebd\config\YamlFooProperties.class
+pillihuaman\com\basebd\imagenProducer\domain\Metadata.class
 pillihuaman\com\basebd\config\MongoDBConexion.class
 pillihuaman\com\basebd\product\domain\dao\ProductSupportDAO.class
 pillihuaman\com\basebd\config\MongoDBConfig.class

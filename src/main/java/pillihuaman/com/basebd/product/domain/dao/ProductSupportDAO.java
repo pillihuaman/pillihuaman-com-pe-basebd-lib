@@ -7,6 +7,6 @@ import pillihuaman.com.basebd.product.domain.Product;
 
 public interface ProductSupportDAO extends BaseMongoRepository<Product> {
 	boolean  SaveProduct(Product request);
-
 	List<Product> getCorrelativeProduct(Product request);
+	List<Product> getallProductbyUser (Product request);
 }

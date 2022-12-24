@@ -24,6 +24,26 @@ public class Imagen implements Serializable {
 	private String uniqueKeyHash;
 	private  int countRanking;
 	private int clickCount;
+
+	private String idDetail;
+	private int  index;
+
+	public String getIdDetail() {
+		return idDetail;
+	}
+
+	public void setIdDetail(String idDetail) {
+		this.idDetail = idDetail;
+	}
+
+	public int getIndex() {
+		return index;
+	}
+
+	public void setIndex(int index) {
+		this.index = index;
+	}
+
 	private AuditEntity auditEntity;
 
 	public int getCountRanking() {

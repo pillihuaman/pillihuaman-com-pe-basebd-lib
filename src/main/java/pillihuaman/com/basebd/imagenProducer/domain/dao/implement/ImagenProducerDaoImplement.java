@@ -6,7 +6,10 @@ import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.logging.Filter;
 
+import com.mongodb.client.model.Filters;
+import com.mongodb.client.model.Updates;
 import org.bson.Document;
 import org.bson.conversions.Bson;
 import org.bson.types.ObjectId;
@@ -81,7 +84,7 @@ public class ImagenProducerDaoImplement extends AbstractMongoDBRepositoryImpl<Im
     }
 
     @Override
-    public List<ImagenFile> getTopImagen(int page, int perPage ,String idDetail) {
+    public List<ImagenFile> getTopImagen(int page, int perPage, String idDetail) {
         int skip = 0;
 
         if (page == 1) {
@@ -109,6 +112,31 @@ public class ImagenProducerDaoImplement extends AbstractMongoDBRepositoryImpl<Im
                 .append("$limit", perPage));
 
         int cantTotalRegistros = collection.aggregate(pipeline).into(new ArrayList<ImagenFile>()).size();
+        List<ImagenFile> lstImagenFile = collection.aggregate(pipeline)
+                .into(new ArrayList<ImagenFile>());
+        return lstImagenFile;
+    }
+
+    @Override
+    public void saveClickCountImagen(ImagenFile imFile) {
+
+        com.mongodb.client.MongoCollection<ImagenFile> collection = getCollection("files.files", this.provideEntityClass());
+        List<ImagenFile> getLasCountImagen = getLastCountImagen(imFile.getId().toString());
+        if (!getLasCountImagen.isEmpty()) {
+            int netxCount = getLasCountImagen.get(0).getMetadata().getClickCount() + 1;
+            collection.updateOne(Filters.and(Filters.eq("_id", imFile.getId())), Updates.set("metadata" + "." + "clickCount", netxCount));
+        }
+    }
+
+    @Override
+    public List<ImagenFile> getLastCountImagen(String id) {
+        com.mongodb.client.MongoCollection<ImagenFile> collection = getCollection("files.files", this.provideEntityClass());
+
+        List<Document> pipeline = Arrays.asList(new Document()
+                .append("$match", new Document()
+                        .append("_id", new ObjectId(id))), new Document()
+                .append("$project", new Document()
+                        .append("metadata.clickCount", 1)));
         List<ImagenFile> lstImagenFile = collection.aggregate(pipeline)
                 .into(new ArrayList<ImagenFile>());
         return lstImagenFile;

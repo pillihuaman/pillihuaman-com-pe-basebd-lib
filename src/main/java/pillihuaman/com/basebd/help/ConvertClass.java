@@ -102,24 +102,33 @@ public class ConvertClass {
     public static List<CorouselImage> respListImagenFileToImagenGeneral(List<ImagenFile> request) {
         List<CorouselImage> lst = new ArrayList<>();
         int count = 0;
+        int clickCountMax = 0;
+        int max = 0;
         for (ImagenFile im :
                 request) {
             CorouselImage imr = new CorouselImage();
-            if (count == 0) {
-                imr.setIndicators(true);
-                imr.setFirstObject(1 + "");
-
-            } else {
-                imr.setFirstObject(null);
-                imr.setIndicators(false);
+            clickCountMax = im.getMetadata().getClickCount();
+            if (clickCountMax > max) {
+                max = clickCountMax;
             }
+
+
             imr.setImageSrc(im.getId().toString());
             imr.setImageAlt(im.getFilename());
             imr.setImageCountainerToken(UUID.randomUUID().toString());
             imr.setImagetoken(UUID.randomUUID().toString());
             imr.setIndex(im.getMetadata().getIndex());
-            lst.add(imr);
+            imr.setIdDetail(im.getMetadata().getIdDetail().toString());
             count++;
+            if (count == request.size()) {
+
+                imr.setIndicators(true);
+                imr.setFirstObject(max + "");
+            }else{
+                imr.setFirstObject(null);
+                imr.setIndicators(false);
+            }
+            lst.add(imr);
         }
         return lst;
 

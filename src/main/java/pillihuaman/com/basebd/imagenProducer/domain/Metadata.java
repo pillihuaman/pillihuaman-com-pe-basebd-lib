@@ -10,7 +10,16 @@ public class Metadata {
     private int clickCount;
 
     private int index;
+
     private ObjectId idDetail;
+
+    public ObjectId getIdDetail() {
+        return idDetail;
+    }
+
+    public void setIdDetail(ObjectId idDetail) {
+        this.idDetail = idDetail;
+    }
 
     public int getIndex() {
         return index;
@@ -60,11 +69,7 @@ public class Metadata {
         this.clickCount = clickCount;
     }
 
-    public ObjectId getIdDetail() {
-        return idDetail;
-    }
 
-    public void setIdDetail(ObjectId idDetail) {
-        this.idDetail = idDetail;
-    }
+
+
 }

@@ -10,4 +10,7 @@ public interface ImagenProducerDAO extends BaseMongoRepository<ImagenFile> {
 	
 	byte[] getImagenInputStream(String idImagen);
 	List<ImagenFile> getTopImagen(int page,int perPage,String idDetail);
+	List<ImagenFile> getLastCountImagen(String id);
+
+	void  saveClickCountImagen(ImagenFile imFile);
 }

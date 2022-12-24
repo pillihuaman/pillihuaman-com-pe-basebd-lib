@@ -8,6 +8,8 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
+import com.mongodb.client.model.Filters;
+import com.mongodb.client.model.Updates;
 import org.bson.Document;
 import org.bson.types.ObjectId;
 import org.springframework.stereotype.Component;
@@ -23,6 +25,7 @@ import pillihuaman.com.basebd.help.Constants;
 import pillihuaman.com.basebd.imagen.domain.DetailImage;
 import pillihuaman.com.basebd.imagen.domain.Imagen;
 import pillihuaman.com.basebd.imagen.domain.dao.ImagenSupportDAO;
+import pillihuaman.com.basebd.imagenProducer.domain.ImagenFile;
 
 @Component
 public class ImagenSupportDaoImplement extends AbstractMongoDBRepositoryImpl<Imagen> implements ImagenSupportDAO {
@@ -111,7 +114,7 @@ public class ImagenSupportDaoImplement extends AbstractMongoDBRepositoryImpl<Ima
 		}
 		List<Document> pipeline = Arrays.asList(new Document()
 				.append("$sort", new Document()
-						.append("countRanking", -1)), new Document()
+						.append("clickCount", -1)), new Document()
 				.append("$skip", skip), new Document()
 				.append("$limit", perpage));
 
@@ -121,4 +124,29 @@ public class ImagenSupportDaoImplement extends AbstractMongoDBRepositoryImpl<Ima
 		List<Imagen> lisImg	=	collection.aggregate(pipeline).into(new ArrayList<Imagen>());
 		return lisImg;
 	}
-}
+
+	@Override
+	public void countImagenClickEventSave(String imFile) {
+
+		com.mongodb.client.MongoCollection<Imagen> collection = getCollection(this.collectionName, this.provideEntityClass());
+		List<Imagen> getLaslstImagen= getLastCountImagenRank(imFile);
+		if (!getLaslstImagen.isEmpty()) {
+			int netxCount = getLaslstImagen.get(0).getClickCount() + 1;
+			collection.updateOne(Filters.and(Filters.eq("_id", new ObjectId(imFile))), Updates.set("clickCount", netxCount));
+		}
+	}
+	@Override
+	public List<Imagen> getLastCountImagenRank(String id) {
+		com.mongodb.client.MongoCollection<Imagen> collection = getCollection(this.collectionName, this.provideEntityClass());
+
+		List<Document> pipeline = Arrays.asList(new Document()
+				.append("$match", new Document()
+						.append("_id", new ObjectId(id))), new Document()
+				.append("$project", new Document()
+						.append("clickCount", 1)));
+		List<Imagen> lstImagen = collection.aggregate(pipeline)
+				.into(new ArrayList<Imagen>());
+		return lstImagen;
+	}
+
+	}

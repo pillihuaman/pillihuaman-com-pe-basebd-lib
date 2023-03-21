@@ -11,133 +11,161 @@ import org.springframework.stereotype.Component;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 
+import pillihuaman.com.basebd.common.ProductStock;
 import pillihuaman.com.basebd.help.AuditEntity;
 
 @Component
 public class Product implements Serializable {
-	private static final long serialVersionUID = 1L;
-	@BsonId
-	@JsonSerialize(using = ToStringSerializer.class)
-	private ObjectId _id;
-	private String description;
-	private String name;
-	private int idUser;
-	private float idPrice;
-	private int idImagen;
-	private int idSystem;
-	private int idStock;
-	private int idPosition;
-	private int idProduct;
-	private Date expirationDate;
-	private int idType;
+    private static final long serialVersionUID = 1L;
+    @BsonId
+    @JsonSerialize(using = ToStringSerializer.class)
+    private ObjectId _id;
+    private String description;
+    private String name;
+    private int idUser;
+    private float idPrice;
+    private int idImagen;
+    private int idSystem;
+    private ProductStock idStock;
+    private int idPosition;
+    private ObjectId idProduct;
+    private Date expirationDate;
+    private int idType;
 
-	private AuditEntity auditEntity;
+    private float highPrice;
+    private float lowPrice;
+    private String currency;
 
-	public ObjectId get_id() {
-		return _id;
-	}
+    public float getHighPrice() {
+        return highPrice;
+    }
 
-	public void set_id(ObjectId _id) {
-		this._id = _id;
-	}
+    public void setHighPrice(float highPrice) {
+        this.highPrice = highPrice;
+    }
 
-	public String getDescription() {
-		return description;
-	}
+    public float getLowPrice() {
+        return lowPrice;
+    }
 
-	public void setDescription(String description) {
-		this.description = description;
-	}
+    public void setLowPrice(float lowPrice) {
+        this.lowPrice = lowPrice;
+    }
 
-	public String getName() {
-		return name;
-	}
+    public String getCurrency() {
+        return currency;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public void setCurrency(String currency) {
+        this.currency = currency;
+    }
 
-	public int getIdUser() {
-		return idUser;
-	}
+    private AuditEntity auditEntity;
 
-	public void setIdUser(int idUser) {
-		this.idUser = idUser;
-	}
+    public ObjectId get_id() {
+        return _id;
+    }
 
-	public float getIdPrice() {
-		return idPrice;
-	}
+    public void set_id(ObjectId _id) {
+        this._id = _id;
+    }
 
-	public void setIdPrice(float idPrice) {
-		this.idPrice = idPrice;
-	}
+    public String getDescription() {
+        return description;
+    }
 
-	public int getIdImagen() {
-		return idImagen;
-	}
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
-	public void setIdImagen(int idImagen) {
-		this.idImagen = idImagen;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public int getIdSystem() {
-		return idSystem;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public void setIdSystem(int idSystem) {
-		this.idSystem = idSystem;
-	}
+    public int getIdUser() {
+        return idUser;
+    }
 
-	public int getIdStock() {
-		return idStock;
-	}
+    public void setIdUser(int idUser) {
+        this.idUser = idUser;
+    }
 
-	public void setIdStock(int idStock) {
-		this.idStock = idStock;
-	}
+    public float getIdPrice() {
+        return idPrice;
+    }
 
-	public int getIdPosition() {
-		return idPosition;
-	}
+    public void setIdPrice(float idPrice) {
+        this.idPrice = idPrice;
+    }
 
-	public void setIdPosition(int idPosition) {
-		this.idPosition = idPosition;
-	}
+    public int getIdImagen() {
+        return idImagen;
+    }
 
-	public int getIdProduct() {
-		return idProduct;
-	}
+    public void setIdImagen(int idImagen) {
+        this.idImagen = idImagen;
+    }
 
-	public void setIdProduct(int idProduct) {
-		this.idProduct = idProduct;
-	}
+    public int getIdSystem() {
+        return idSystem;
+    }
 
-	public Date getExpirationDate() {
-		return expirationDate;
-	}
+    public void setIdSystem(int idSystem) {
+        this.idSystem = idSystem;
+    }
 
-	public void setExpirationDate(Date expirationDate) {
-		this.expirationDate = expirationDate;
-	}
 
-	public int getIdType() {
-		return idType;
-	}
+    public int getIdPosition() {
+        return idPosition;
+    }
 
-	public void setIdType(int idType) {
-		this.idType = idType;
-	}
+    public void setIdPosition(int idPosition) {
+        this.idPosition = idPosition;
+    }
 
-	public AuditEntity getAuditEntity() {
-		return auditEntity;
-	}
+    public ProductStock getIdStock() {
+        return idStock;
+    }
 
-	public void setAuditEntity(AuditEntity auditEntity) {
-		this.auditEntity = auditEntity;
-	}
+    public void setIdStock(ProductStock idStock) {
+        this.idStock = idStock;
+    }
 
-	
+    public ObjectId getIdProduct() {
+        return idProduct;
+    }
+
+    public void setIdProduct(ObjectId idProduct) {
+        this.idProduct = idProduct;
+    }
+
+    public Date getExpirationDate() {
+        return expirationDate;
+    }
+
+    public void setExpirationDate(Date expirationDate) {
+        this.expirationDate = expirationDate;
+    }
+
+    public int getIdType() {
+        return idType;
+    }
+
+    public void setIdType(int idType) {
+        this.idType = idType;
+    }
+
+    public AuditEntity getAuditEntity() {
+        return auditEntity;
+    }
+
+    public void setAuditEntity(AuditEntity auditEntity) {
+        this.auditEntity = auditEntity;
+    }
 
 
 }

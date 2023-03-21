@@ -178,9 +178,11 @@ public class Constants {
 	public static final String DR = "gamachicas";
 	public static final String COLLECTION_USER = "user";
 	public static final String COLLECTION_PRODUCT = "product";
+	public static final String COLLECTION_STOCK = "stock";
 	public static final String COLLECTION_IMAGEN = "imagen";
 	public static final String COLLECTION_IMAGEN_DETAIL = "imagenDetail";
 	public static final String COLLECTION_IMAGEN_FILES = "files.files";
 	public static final String COLLECTION_IMAGEN_TEMP_FILES = "imagenTemp.files";
+	public static final String COLLECTION_CONTROL = "control";
 	}
 

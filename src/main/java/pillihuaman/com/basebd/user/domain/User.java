@@ -3,6 +3,7 @@ package pillihuaman.com.basebd.user.domain;
 import java.io.Serializable;
 
 import org.bson.codecs.pojo.annotations.BsonId;
+import org.bson.codecs.pojo.annotations.BsonProperty;
 import org.bson.types.ObjectId;
 import org.springframework.stereotype.Component;
 
@@ -15,9 +16,8 @@ import pillihuaman.com.basebd.help.AuditEntity;
 public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	@BsonId
-	@JsonSerialize(using = ToStringSerializer.class)
-	private ObjectId _id;
+	@BsonProperty(value = "_id")
+	private ObjectId id;
 
 	private AuditEntity AuditEntity;
 	private String alias;
@@ -30,12 +30,14 @@ public class User implements Serializable {
 	private String user_name;
 	private String type_document;
 	private String numType_document;
-	private int id_user;
-	public ObjectId get_id() {
-		return _id;
+	private ObjectId id_user;
+
+	public ObjectId getId() {
+		return id;
 	}
-	public void set_id(ObjectId _id) {
-		this._id = _id;
+
+	public void setId(ObjectId id) {
+		this.id = id;
 	}
 	public AuditEntity getAuditEntity() {
 		return AuditEntity;
@@ -103,10 +105,10 @@ public class User implements Serializable {
 	public void setNumType_document(String numType_document) {
 		this.numType_document = numType_document;
 	}
-	public int getId_user() {
+	public ObjectId getId_user() {
 		return id_user;
 	}
-	public void setId_user(int id_user) {
+	public void setId_user(ObjectId id_user) {
 		this.id_user = id_user;
 	}
 

@@ -44,6 +44,7 @@ public class UserGeneralDaoImpl implements UserGeneralRepositoy {
 				obj.setPassword(user.getPassword());
 				obj.setSal_Password(user.getSal_password());
 				obj.setUsername(user.getUser_name());
+				obj.setId_user(user.getId());
 			}
 			respo.setPayload(obj);
 
@@ -123,13 +124,13 @@ public class UserGeneralDaoImpl implements UserGeneralRepositoy {
 			tbl.setSal_password(salt);
 			tbl.setPassword(codeString);
 			List<User> list = userRepository.findLastUser();
-			if (list != null && list.size() > 0) {
+			/*if (list != null && list.size() > 0) {
 				tbl.setId_user(list.get(0).getId_user() + 1);
 				userRepository.saveUser(tbl);
 			} else {
 				tbl.setId_user(1);
 				userRepository.saveUser(tbl);
-			}
+			}*/
 
 			response.getStatus().setSuccess(Boolean.TRUE);
 			response.setPayload(new RespUser());

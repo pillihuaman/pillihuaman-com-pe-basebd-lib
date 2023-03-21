@@ -12,10 +12,10 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<dependencies>
-       <dependency>
-		<groupId>pillihuaman-com-base-pe</groupId>
-        <artifactId>pillihuaman-base</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
+		<dependency>
+			<groupId>pillihuaman-com-base-pe</groupId>
+			<artifactId>pillihuaman-base</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>org.sql2o</groupId>

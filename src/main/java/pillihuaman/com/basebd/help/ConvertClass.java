@@ -1,14 +1,19 @@
 package pillihuaman.com.basebd.help;
 
 
-import pillihuaman.com.base.request.ReqProduct;
-import pillihuaman.com.base.request.ReqUser;
+import pillihuaman.com.base.request.*;
 import pillihuaman.com.base.response.CorouselImage;
-import pillihuaman.com.base.response.RespImagenGeneral;
+import pillihuaman.com.base.response.RespControl;
 import pillihuaman.com.base.response.RespProduct;
 import pillihuaman.com.base.response.RespUser;
+import pillihuaman.com.basebd.common.ProductStock;
+import pillihuaman.com.basebd.control.domain.Control;
+import pillihuaman.com.basebd.imagenProducer.domain.File;
 import pillihuaman.com.basebd.imagenProducer.domain.ImagenFile;
+import pillihuaman.com.basebd.product.domain.Color;
 import pillihuaman.com.basebd.product.domain.Product;
+import pillihuaman.com.basebd.product.domain.Size;
+import pillihuaman.com.basebd.product.domain.Stock;
 import pillihuaman.com.basebd.user.domain.User;
 
 import java.util.ArrayList;
@@ -45,6 +50,42 @@ public class ConvertClass {
         return resp;
 
     }
+
+    public static ProductStock ProductStockRequestDtoToProductStock(ReqStock request) {
+        ProductStock resp = new ProductStock();
+        Size siz = new Size();
+        Stock stock = new Stock();
+        List<Size> lstSiz = new ArrayList<>();
+        request.getSize();
+        for (ReqSize s :
+                request.getSize()) {
+            Size sizs = new Size();
+            sizs.setParameter(s.getParameter());
+            List<Color> col = new ArrayList<>();
+            for (ReqColor c :
+                    s.getColor()) {
+                Color cols = new Color();
+                List<File> lst = new ArrayList<>();
+                //cols.setFile(lst);
+                cols.setIdProduct(c.getIdProduct());
+                col.add(cols);
+                sizs.setColor(col);
+            }
+            lstSiz.add(sizs);
+        }
+
+        stock.setSize(lstSiz);
+        resp.setCreationDate(request.getCreationDate());
+        resp.setExpirationDate(request.getExpirationDate());
+        Product product = new Product();
+        //  product.setIdProduct(request.getIdProduct());
+        // resp.setProduct(product);
+        resp.setStock(stock);
+        //resp.setStock();
+        return resp;
+
+    }
+
 
     public static List<RespProduct> listProductoRespProduct(List<Product> lstproduct) {
         List<RespProduct> lstresp = new ArrayList<>();
@@ -124,7 +165,7 @@ public class ConvertClass {
 
                 imr.setIndicators(true);
                 imr.setFirstObject(max + "");
-            }else{
+            } else {
                 imr.setFirstObject(null);
                 imr.setIndicators(false);
             }
@@ -134,5 +175,29 @@ public class ConvertClass {
 
     }
 
+    public static RespControl listControlToRespControl(List<Control> request) {
+        RespControl resp = new RespControl();
+        List<ReqControl> lr = new ArrayList<>();
+        for (Control co : request
+        ) {
+            ReqControl r = new ReqControl();
+            r.set_id(co.getId());
+            r.setId_user(co.getId_user());
+            r.setIconClass(co.getIconClass());
+            r.setDescription(co.getDescription());
+            r.setIcono(co.getIcono());
+            r.setIcono(co.getIcono());
+            r.setStyleClass(co.getStyleClass());
+            r.setIdMenu(co.getIdMenu());
+            r.setStatus(co.getStatus());
+            r.setIdPage(co.getIdPage());
+            r.setIdSystem(co.getIdSystem());
+            lr.add(r);
+        }
+
+        resp.setLstControles(lr);
+        return resp;
+
+    }
 
 }

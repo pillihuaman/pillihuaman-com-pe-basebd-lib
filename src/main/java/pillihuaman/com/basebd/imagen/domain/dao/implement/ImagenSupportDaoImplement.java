@@ -19,6 +19,7 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.gridfs.GridFSBucket;
 import com.mongodb.client.gridfs.model.GridFSUploadOptions;
 
+import pillihuaman.com.basebd.common.ProductStock;
 import pillihuaman.com.basebd.config.AbstractMongoDBRepositoryImpl;
 import pillihuaman.com.basebd.help.AuditEntity;
 import pillihuaman.com.basebd.help.Constants;
@@ -44,6 +45,30 @@ public class ImagenSupportDaoImplement extends AbstractMongoDBRepositoryImpl<Ima
 
 	@Override
 	public ObjectId saveImagenFile(DetailImage detail) throws Exception {
+
+		InputStream iss = new ByteArrayInputStream(detail.getFiles());
+		ByteArrayInputStream arrayIn = inputStreamToArrayInputStream(iss);
+
+		GridFSBucket gridFSFilesBucket = getGridFSBucket("files");
+		Document doc = new Document();
+		doc.put("idImagen", detail.getIdImagen());
+		doc.put("idHeadImagen", detail.getIdHeadImagen());
+		doc.put("name", detail.getName());
+		doc.put("countRanking", detail.getCountRanking());
+		doc.put("clickCount", detail.getClickCount());
+		doc.put("idDetail", detail.getIdDetail());
+		doc.put("index", detail.getIndex());
+		GridFSUploadOptions options = new GridFSUploadOptions().metadata(doc);
+		ObjectId fileId = gridFSFilesBucket.uploadFromStream(detail.getName(), arrayIn, options);
+		iss.close();
+		arrayIn.close();
+		arrayIn = null;
+		iss = null;
+		return fileId;
+	}
+
+	@Override
+	public ObjectId saveImagenStockFile(DetailImage detail) throws Exception {
 
 		InputStream iss = new ByteArrayInputStream(detail.getFiles());
 		ByteArrayInputStream arrayIn = inputStreamToArrayInputStream(iss);
@@ -123,6 +148,20 @@ public class ImagenSupportDaoImplement extends AbstractMongoDBRepositoryImpl<Ima
 		//int cantTotalRegistros = collection.aggregate(pipeline).into(new ArrayList<Imagen>()).size();
 		List<Imagen> lisImg	=	collection.aggregate(pipeline).into(new ArrayList<Imagen>());
 		return lisImg;
+	}
+
+	@Override
+	public ProductStock getStockProduct(int idProduct) {
+
+		/*Document quer=new Document();
+
+
+		MongoCollection<ProductStock> collection = getCollection(this.collectionName, ProductStock.class);
+
+		//int cantTotalRegistros = collection.aggregate(pipeline).into(new ArrayList<Imagen>()).size();
+		List<ProductStock> proStock	=	collection.aggregate(pipeline).into(new ArrayList<ProductStock>());
+		return proStock.get(0);*/
+		return null;
 	}
 
 	@Override

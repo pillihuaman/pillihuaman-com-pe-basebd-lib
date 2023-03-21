@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.List;
 
 import org.bson.Document;
+import org.bson.types.ObjectId;
 import org.springframework.stereotype.Component;
 
 import com.mongodb.client.MongoCollection;
@@ -64,7 +65,7 @@ public class UserDaoImplement extends AbstractMongoDBRepositoryImpl<User> implem
 		doc.put("user_name", request.getUser_name());
 		doc.put("type_document", request.getType_document());
 		doc.put("numType_document", request.getNumType_document());
-		doc.put("id_user", request.getId_user());
+		doc.put("id_user", null);
 
 		docAud.put("cod_usuRegis", aud.getCodUsuRegis());
 		docAud.put("fec_regis", aud.getFecRegis());
@@ -82,6 +83,13 @@ public class UserDaoImplement extends AbstractMongoDBRepositoryImpl<User> implem
 		Document sort = new Document().append("id_user", -1);
 		List<User> lisProduct = collection.find(query, User.class).sort(sort).limit(1).into(new ArrayList<User>());
 		return lisProduct;
+	}
+	@Override
+	public List<User> findUserById(ObjectId id) {
+		MongoCollection<User> collection = getCollection(this.collectionName, User.class);
+		Document query = new Document().append("_id", id);
+		List<User> lisUser = collection.find(query, User.class).limit(1).into(new ArrayList<User>());
+		return lisUser;
 	}
 
 }

@@ -44,7 +44,7 @@ public class UserGeneralDaoImpl implements UserGeneralRepositoy {
 				obj.setPassword(user.getPassword());
 				obj.setSal_Password(user.getSal_password());
 				obj.setUsername(user.getUser_name());
-				obj.setId_user(user.getId());
+				obj.setId_user(user.getId().toString());
 			}
 			respo.setPayload(obj);
 

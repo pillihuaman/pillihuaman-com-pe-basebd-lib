@@ -42,7 +42,6 @@ public class ProductSupportDaoImplement extends AbstractMongoDBRepositoryImpl<Pr
         doc.put("description", request.getDescription());
         doc.put("name", request.getName());
         doc.put("idUser", request.getIdUser());
-        doc.put("idProduct", request.getIdProduct());
         docAud.put("codUsuRegis", aud.getCodUsuRegis());
         docAud.put("fecRegis", aud.getFecRegis());
 

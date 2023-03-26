@@ -42,7 +42,7 @@ public class ConvertClass {
         resp.setExpirationDate(request.getExpirationDate());
         resp.setIdImagen(request.getIdImagen());
         resp.setIdPrice(request.getIdPrice());
-        resp.setIdProduct(request.getIdProduct());
+       // resp.setIdProduct(request.getIdProduct());
         resp.setIdSystem(request.getIdSystem());
         resp.setIdType(request.getIdType());
         resp.setIdUser(request.getIdUser());
@@ -97,10 +97,10 @@ public class ConvertClass {
                 resp.setExpirationDate(product.getExpirationDate());
                 resp.setIdImagen(product.getIdImagen());
                 resp.setIdPrice(product.getIdPrice());
-                resp.setIdProduct(product.getIdProduct());
+                resp.setIdProduct(product.getId().toString());
                 resp.setIdSystem(product.getIdSystem());
                 resp.setIdType(product.getIdType());
-                resp.setIdUser(product.getIdUser());
+               resp.setIdUser(product.getIdUser().toString());
                 resp.setName(product.getName());
                 lstresp.add(resp);
 
@@ -192,6 +192,8 @@ public class ConvertClass {
             r.setStatus(co.getStatus());
             r.setIdPage(co.getIdPage());
             r.setIdSystem(co.getIdSystem());
+            r.setIdCode(co.getIdCode());
+            r.setText(co.getText());
             lr.add(r);
         }
 

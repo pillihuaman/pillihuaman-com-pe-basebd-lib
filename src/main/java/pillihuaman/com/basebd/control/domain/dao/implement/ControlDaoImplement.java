@@ -40,8 +40,8 @@ public class ControlDaoImplement extends AbstractMongoDBRepositoryImpl<Control> 
         MongoCollection<Control> collection = getCollection(this.collectionName, Control.class);
         Document query = null;
         if (reqControl != null) {
-            if (reqControl.getId_user() != null) {
-                query = new Document().append("id_user", reqControl.getId_user());
+            if (reqControl.getId_user() != null && !reqControl.getId_user().toString().isEmpty()) {
+                query = new Document().append("id_user", reqControl.getId_user().toString());
             }
         } else {
             query = new Document().append("status", ConstantsUseful.CONTROL_ESTATE_PUBLIC);

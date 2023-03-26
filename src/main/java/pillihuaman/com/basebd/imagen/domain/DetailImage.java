@@ -29,7 +29,7 @@ public class DetailImage implements Serializable {
 	private byte[] files;
 
 
-	private ObjectId idDetail;
+	private String idDetail;
 
 	private String uniqueKeyHash;
 	@BsonProperty(value = "_object_id")
@@ -109,11 +109,11 @@ public class DetailImage implements Serializable {
 		this.files = files;
 	}
 
-	public ObjectId getIdDetail() {
+	public String getIdDetail() {
 		return idDetail;
 	}
 
-	public void setIdDetail(ObjectId idDetail) {
+	public void setIdDetail(String idDetail) {
 		this.idDetail = idDetail;
 	}
 

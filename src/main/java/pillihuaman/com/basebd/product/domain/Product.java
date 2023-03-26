@@ -17,18 +17,17 @@ import pillihuaman.com.basebd.help.AuditEntity;
 @Component
 public class Product implements Serializable {
     private static final long serialVersionUID = 1L;
-    @BsonId
-    @JsonSerialize(using = ToStringSerializer.class)
-    private ObjectId _id;
+    @BsonProperty(value = "_id")
+    private ObjectId id;
     private String description;
     private String name;
-    private int idUser;
+    private ObjectId idUser;
     private float idPrice;
     private int idImagen;
     private int idSystem;
     private ProductStock idStock;
     private int idPosition;
-    private ObjectId idProduct;
+    //private ObjectId idProduct;
     private Date expirationDate;
     private int idType;
 
@@ -62,12 +61,12 @@ public class Product implements Serializable {
 
     private AuditEntity auditEntity;
 
-    public ObjectId get_id() {
-        return _id;
+    public ObjectId getId() {
+        return id;
     }
 
-    public void set_id(ObjectId _id) {
-        this._id = _id;
+    public void setId(ObjectId id) {
+        this.id = id;
     }
 
     public String getDescription() {
@@ -86,11 +85,11 @@ public class Product implements Serializable {
         this.name = name;
     }
 
-    public int getIdUser() {
+    public ObjectId getIdUser() {
         return idUser;
     }
 
-    public void setIdUser(int idUser) {
+    public void setIdUser(ObjectId idUser) {
         this.idUser = idUser;
     }
 
@@ -135,13 +134,13 @@ public class Product implements Serializable {
         this.idStock = idStock;
     }
 
-    public ObjectId getIdProduct() {
-        return idProduct;
-    }
+    //public ObjectId getIdProduct() {
+      //  return idProduct;
+    //}
 
-    public void setIdProduct(ObjectId idProduct) {
-        this.idProduct = idProduct;
-    }
+    //public void setIdProduct(ObjectId idProduct) {
+      //  this.idProduct = idProduct;
+    //}
 
     public Date getExpirationDate() {
         return expirationDate;

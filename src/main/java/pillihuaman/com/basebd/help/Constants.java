@@ -174,8 +174,8 @@ public class Constants {
 	public static final String PRE_ADJ_DESE_CONVENIO = "CONVDES";
 
 	public static final String FORMATO_FECHA_DD_MM_YYYY_HORA = "dd/MM/yyyy HH:mm:ss";
-	public static final String DW = "gamachicas";
-	public static final String DR = "gamachicas";
+	public static final String DW = "alamodaperu";
+	public static final String DR = "alamodaperu";
 	public static final String COLLECTION_USER = "user";
 	public static final String COLLECTION_PRODUCT = "product";
 	public static final String COLLECTION_STOCK = "stock";

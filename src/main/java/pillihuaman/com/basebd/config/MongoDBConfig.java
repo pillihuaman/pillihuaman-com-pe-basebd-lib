@@ -7,12 +7,6 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
 
-import lombok.Getter;
-import lombok.Setter;
-
-//@PropertySource(value = "classpath:config.yaml", factory = YamlPropertySourceFactory.class)
-@Setter
-@Getter
 @Component
 @ConfigurationProperties(prefix = "mongodb")
 @Configuration

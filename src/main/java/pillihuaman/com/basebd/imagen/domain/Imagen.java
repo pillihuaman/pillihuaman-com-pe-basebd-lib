@@ -20,7 +20,7 @@ public class Imagen implements Serializable {
 	private int idHeadImagen;
 
 	private int idSystem;
-	private int idProduct;
+	private String idProduct;
 	private String uniqueKeyHash;
 	private  int countRanking;
 	private int clickCount;
@@ -70,11 +70,11 @@ public class Imagen implements Serializable {
 		this.uniqueKeyHash = uniqueKeyHash;
 	}
 
-	public int getIdProduct() {
+	public String getIdProduct() {
 		return idProduct;
 	}
 
-	public void setIdProduct(int idProduct) {
+	public void setIdProduct(String idProduct) {
 		this.idProduct = idProduct;
 	}
 

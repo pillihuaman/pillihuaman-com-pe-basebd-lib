@@ -1,4 +1,5 @@
 pillihuaman\com\basebd\imagenTemp\domain\ImagenTemp.class
+pillihuaman\com\basebd\parameter\domain\dao\implement\ParameterDaoImplement.class
 pillihuaman\com\basebd\config\PoolParams.class
 pillihuaman\com\basebd\control\domain\dao\ControlDAO.class
 pillihuaman\com\basebd\config\Nodo.class
@@ -7,13 +8,11 @@ pillihuaman\com\basebd\user\domain\dao\UserRepository.class
 pillihuaman\com\basebd\user\domain\dao\implement\UserDaoImplement.class
 pillihuaman\com\basebd\imagenProducer\domain\dao\ImagenProducerDAO.class
 pillihuaman\com\basebd\config\PasswordSerializer.class
-pillihuaman\com\basebd\security\MyJsonWebToken.class
 pillihuaman\com\basebd\product\domain\Color.class
 pillihuaman\com\basebd\config\AppProperties.class
 pillihuaman\com\basebd\help\RoutingKey.class
 pillihuaman\com\basebd\product\domain\dao\implement\ProductSupportDaoImplement.class
 pillihuaman\com\basebd\user\domain\User.class
-pillihuaman\com\basebd\security\MyJsonWebToken$User.class
 pillihuaman\com\basebd\help\ConstantsUseful.class
 pillihuaman\com\basebd\imagenTemp\domain\dao\ImagenTempDAO.class
 pillihuaman\com\basebd\config\Credenciales.class
@@ -32,6 +31,7 @@ pillihuaman\com\basebd\help\GenericList.class
 pillihuaman\com\basebd\security\BcryptManager.class
 pillihuaman\com\basebd\userGeneral\domain\dao\implement\UserGeneralDaoImpl.class
 pillihuaman\com\basebd\product\domain\Stock.class
+pillihuaman\com\basebd\help\AuditEntity$Builder.class
 pillihuaman\com\basebd\imagenTemp\domain\dao\implement\ImagenTempDaoImplement.class
 pillihuaman\com\basebd\security\PasswordUtils.class
 pillihuaman\com\basebd\config\ConfigDefaults.class
@@ -55,7 +55,9 @@ pillihuaman\com\basebd\help\ConvertClass.class
 pillihuaman\com\basebd\help\Constants.class
 pillihuaman\com\basebd\config\AbstractMongoRepositoryImpl.class
 pillihuaman\com\basebd\config\BaseMongoRepository.class
+pillihuaman\com\basebd\parameter\domain\Parameter.class
 pillihuaman\com\basebd\config\AbstractMongoDBRepositoryImpl.class
 pillihuaman\com\basebd\imagenProducer\domain\dao\implement\ImagenProducerDaoImplement.class
+pillihuaman\com\basebd\parameter\domain\dao\ParameterRepository.class
 pillihuaman\com\basebd\product\domain\Product.class
-pillihuaman\com\basebd\security\MyJsonWebToken$Aplication.class
+pillihuaman\com\basebd\help\Util.class

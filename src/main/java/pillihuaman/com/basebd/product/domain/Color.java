@@ -15,7 +15,7 @@ public class Color implements Serializable {
         @BsonId
         @JsonSerialize(using = ToStringSerializer.class)
         private ObjectId _id;
-        private String idProduct;
+        private ObjectId idProduct;
 
         
         private List<ImagenDetail> listImagen;
@@ -27,11 +27,11 @@ public class Color implements Serializable {
                 this._id = _id;
         }
 
-        public String getIdProduct() {
+        public ObjectId getIdProduct() {
                 return idProduct;
         }
 
-        public void setIdProduct(String idProduct) {
+        public void setIdProduct(ObjectId idProduct) {
                 this.idProduct = idProduct;
         }
 

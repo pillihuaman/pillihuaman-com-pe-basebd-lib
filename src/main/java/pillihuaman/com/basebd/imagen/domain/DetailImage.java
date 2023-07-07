@@ -1,13 +1,10 @@
 package pillihuaman.com.basebd.imagen.domain;
 
-import java.io.Serializable;
-import java.math.BigInteger;
-
 import org.bson.codecs.pojo.annotations.BsonProperty;
 import org.bson.types.ObjectId;
 import org.springframework.stereotype.Component;
 
-import pillihuaman.com.basebd.help.AuditEntity;
+import java.io.Serializable;
 
 @Component
 public class DetailImage implements Serializable {
@@ -29,7 +26,7 @@ public class DetailImage implements Serializable {
 	private byte[] files;
 
 
-	private String idDetail;
+	private ObjectId idDetail;
 
 	private String uniqueKeyHash;
 	@BsonProperty(value = "_object_id")
@@ -109,11 +106,11 @@ public class DetailImage implements Serializable {
 		this.files = files;
 	}
 
-	public String getIdDetail() {
+	public ObjectId getIdDetail() {
 		return idDetail;
 	}
 
-	public void setIdDetail(String idDetail) {
+	public void setIdDetail(ObjectId idDetail) {
 		this.idDetail = idDetail;
 	}
 

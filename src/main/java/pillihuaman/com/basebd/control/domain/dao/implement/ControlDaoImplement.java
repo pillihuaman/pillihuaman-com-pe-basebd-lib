@@ -4,6 +4,7 @@ import com.mongodb.client.MongoCollection;
 import org.bson.Document;
 import org.bson.types.ObjectId;
 import org.springframework.stereotype.Component;
+import pillihuaman.com.base.commons.MyJsonWebToken;
 import pillihuaman.com.base.request.ReqControl;
 import pillihuaman.com.base.response.RespControl;
 import pillihuaman.com.basebd.config.AbstractMongoDBRepositoryImpl;
@@ -12,11 +13,10 @@ import pillihuaman.com.basebd.control.domain.dao.ControlDAO;
 import pillihuaman.com.basebd.help.AuditEntity;
 import pillihuaman.com.basebd.help.Constants;
 import pillihuaman.com.basebd.help.ConstantsUseful;
-import pillihuaman.com.basebd.user.domain.User;
+import pillihuaman.com.basebd.help.Util;
 import pillihuaman.com.basebd.user.domain.dao.UserRepository;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @Component
@@ -53,15 +53,14 @@ public class ControlDaoImplement extends AbstractMongoDBRepositoryImpl<Control> 
     }
 
     @Override
-    public List<RespControl> saveControl(ReqControl request) {
+    public List<RespControl> saveControl(ReqControl request , MyJsonWebToken to) {
         RespControl re = new RespControl();
         List<RespControl> lstre = new ArrayList<>();
         Document doc = new Document();
         Document docAud = new Document();
         //	List<User> lst=	userRepository.findUserById(request.getId_user());
         AuditEntity aud = new AuditEntity();
-        aud.setCodUsuRegis(request.getId_user().toString());
-        aud.setFecRegis(new Date());
+
         //
         List<Control> code = listControlbyCode(request);
         if (code ==null   || code.isEmpty()  || code.size()==0) {
@@ -77,9 +76,7 @@ public class ControlDaoImplement extends AbstractMongoDBRepositoryImpl<Control> 
             doc.put("styleClass", request.getStyleClass());
             doc.put("text", request.getText());
             doc.put("id_user", request.getId_user());
-            docAud.put("cod_usuRegis", aud.getCodUsuRegis());
-            docAud.put("fec_regis", aud.getFecRegis());
-            doc.put("auditEntity", docAud);
+            doc.put("auditEntity", Util.insertAuditEntity(to));
 
             Document co = save(doc);
             RespControl r = new RespControl();
@@ -89,7 +86,7 @@ public class ControlDaoImplement extends AbstractMongoDBRepositoryImpl<Control> 
             //List<ReqControl> lsre= new ArrayList<>();
             l.add(reco);
 
-            re.setLstControles(l);
+           // re.setLstControles(l);
             lstre.add(re);
         } else {
             lstre = null;

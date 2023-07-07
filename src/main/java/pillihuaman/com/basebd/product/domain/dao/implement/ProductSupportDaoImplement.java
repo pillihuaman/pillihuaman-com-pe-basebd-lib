@@ -1,16 +1,8 @@
 package pillihuaman.com.basebd.product.domain.dao.implement;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Objects;
-
+import com.mongodb.client.MongoCollection;
 import org.bson.Document;
 import org.springframework.stereotype.Component;
-
-import com.mongodb.client.MongoCollection;
-
 import pillihuaman.com.base.commons.Utils;
 import pillihuaman.com.base.request.ImagenDetail;
 import pillihuaman.com.basebd.common.ProductStock;
@@ -21,6 +13,11 @@ import pillihuaman.com.basebd.product.domain.Color;
 import pillihuaman.com.basebd.product.domain.Product;
 import pillihuaman.com.basebd.product.domain.Size;
 import pillihuaman.com.basebd.product.domain.dao.ProductSupportDAO;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 @Component
 public class ProductSupportDaoImplement extends AbstractMongoDBRepositoryImpl<Product> implements ProductSupportDAO {
@@ -36,15 +33,11 @@ public class ProductSupportDaoImplement extends AbstractMongoDBRepositoryImpl<Pr
         Document doc = new Document();
         Document docAud = new Document();
         AuditEntity aud = new AuditEntity();
-        aud.setCodUsuRegis("ZPH");
-        aud.setFecRegis(new Date());
+
         request.setAuditEntity(aud);
         doc.put("description", request.getDescription());
         doc.put("name", request.getName());
         doc.put("idUser", request.getIdUser());
-        docAud.put("codUsuRegis", aud.getCodUsuRegis());
-        docAud.put("fecRegis", aud.getFecRegis());
-
         doc.put("auditEntity", docAud);
         save(doc);
         return true;
@@ -82,8 +75,7 @@ public class ProductSupportDaoImplement extends AbstractMongoDBRepositoryImpl<Pr
         Document docAud = new Document();
         AuditEntity aud = new AuditEntity();
 
-        aud.setCodUsuRegis("ZPH");
-        aud.setFecRegis(new Date());
+
         doc.put("idProduct", request.getIdProduct());
         doc.put("expirationDate", request.getExpirationDate());
         doc.put("creationDate", request.getCreationDate());
@@ -121,8 +113,7 @@ public class ProductSupportDaoImplement extends AbstractMongoDBRepositoryImpl<Pr
         }
 
 
-        docAud.put("codUsuRegis", aud.getCodUsuRegis());
-        docAud.put("fecRegis", aud.getFecRegis());
+
         request.setAuditEntity(aud);
         doc.put("auditEntity", docAud);
         save(doc);

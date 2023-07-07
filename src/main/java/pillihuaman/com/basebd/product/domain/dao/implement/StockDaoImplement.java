@@ -16,7 +16,6 @@ import pillihuaman.com.basebd.product.domain.Color;
 import pillihuaman.com.basebd.product.domain.Size;
 import pillihuaman.com.basebd.product.domain.dao.StockSupportDAO;
 
-import java.util.Date;
 import java.util.Objects;
 
 @Component
@@ -42,8 +41,7 @@ public class StockDaoImplement extends AbstractMongoDBRepositoryImpl<ProductStoc
         Document doc = new Document();
         Document docAud = new Document();
         AuditEntity aud = new AuditEntity();
-        aud.setCodUsuRegis("ZPH");
-        aud.setFecRegis(new Date());
+
         doc.put("idProduct", request.getIdProduct());
         doc.put("expirationDate", request.getExpirationDate());
         doc.put("creationDate", request.getCreationDate());
@@ -86,8 +84,7 @@ public class StockDaoImplement extends AbstractMongoDBRepositoryImpl<ProductStoc
         }
 
 
-        docAud.put("codUsuRegis", aud.getCodUsuRegis());
-        docAud.put("fecRegis", aud.getFecRegis());
+
         request.setAuditEntity(aud);
         doc.put("auditEntity", docAud);
         save(doc);

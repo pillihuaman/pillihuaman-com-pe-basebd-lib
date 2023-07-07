@@ -1,20 +1,17 @@
 package pillihuaman.com.basebd.user.domain.dao.implement;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-
+import com.mongodb.client.MongoCollection;
 import org.bson.Document;
 import org.bson.types.ObjectId;
 import org.springframework.stereotype.Component;
-
-import com.mongodb.client.MongoCollection;
-
 import pillihuaman.com.basebd.config.AbstractMongoDBRepositoryImpl;
 import pillihuaman.com.basebd.help.AuditEntity;
 import pillihuaman.com.basebd.help.Constants;
 import pillihuaman.com.basebd.user.domain.User;
 import pillihuaman.com.basebd.user.domain.dao.UserRepository;
+
+import java.util.ArrayList;
+import java.util.List;
 @Component
 public class UserDaoImplement extends AbstractMongoDBRepositoryImpl<User> implements UserRepository {
 	UserDaoImplement() {
@@ -51,8 +48,7 @@ public class UserDaoImplement extends AbstractMongoDBRepositoryImpl<User> implem
 		Document doc = new Document();
 		Document docAud = new Document();
 		AuditEntity aud = new AuditEntity();
-		aud.setCodUsuRegis("ZPH");
-		aud.setFecRegis(new Date());
+
 		request.setAuditEntity(aud);
 
 		doc.put("alias", request.getAlias());
@@ -67,8 +63,7 @@ public class UserDaoImplement extends AbstractMongoDBRepositoryImpl<User> implem
 		doc.put("numType_document", request.getNumType_document());
 		doc.put("id_user", null);
 
-		docAud.put("cod_usuRegis", aud.getCodUsuRegis());
-		docAud.put("fec_regis", aud.getFecRegis());
+
 
 		doc.put("auditEntity", docAud);
 

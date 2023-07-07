@@ -1,54 +1,121 @@
 package pillihuaman.com.basebd.help;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import org.bson.codecs.pojo.annotations.BsonProperty;
+import org.bson.types.ObjectId;
 
 import java.io.Serializable;
 import java.util.Date;
 
 public class AuditEntity implements Serializable {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
+    @BsonProperty(value = "_id")
+    private ObjectId id;
+    private ObjectId codUser;
 
-	private String codUsuRegis;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss.SSSXXX")
+    private Date dateRegister;
 
-	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss.SSSXXX")
-	private Date fecRegis;
+    private ObjectId codUserUpdate;
 
-	private String codUsuModif;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss.SSSXXX")
+    private Date dateUpdate;
+    private String mail;
+    private String mailUpdate;
+    public String getMail() {
+        return mail;
+    }
 
-	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss.SSSXXX")
-	private Date fecModif;
+    public String getMailUpdate() {
+        return mailUpdate;
+    }
 
-	public String getCodUsuRegis() {
-		return codUsuRegis;
-	}
+    public ObjectId getId() {
+        return id;
+    }
 
-	public void setCodUsuRegis(String codUsuRegis) {
-		this.codUsuRegis = codUsuRegis;
-	}
+    public void setId(ObjectId id) {
+        this.id = id;
+    }
 
-	public Date getFecRegis() {
-		return fecRegis;
-	}
+    public void setMailUpdate(String mailUpdate) {
+        this.mailUpdate = mailUpdate;
+    }
 
-	public void setFecRegis(Date fecRegis) {
-		this.fecRegis = fecRegis;
-	}
+    public void setMail(String mail) {
+        this.mail = mail;
+    }
 
-	public String getCodUsuModif() {
-		return codUsuModif;
-	}
+    public ObjectId getCodUser() {
+        return codUser;
+    }
 
-	public void setCodUsuModif(String codUsuModif) {
-		this.codUsuModif = codUsuModif;
-	}
+    public void setCodUser(ObjectId codUser) {
+        this.codUser = codUser;
+    }
 
-	public Date getFecModif() {
-		return fecModif;
-	}
+    public Date getDateRegister() {
+        return dateRegister;
+    }
 
-	public void setFecModif(Date fecModif) {
-		this.fecModif = fecModif;
-	}
+    public void setDateRegister(Date dateRegister) {
+        this.dateRegister = dateRegister;
+    }
+
+    public ObjectId getCodUserUpdate() {
+        return codUserUpdate;
+    }
+
+    public void setCodUserUpdate(ObjectId codUserUpdate) {
+        this.codUserUpdate = codUserUpdate;
+    }
+
+    public Date getDateUpdate() {
+        return dateUpdate;
+    }
+
+    public void setDateUpdate(Date dateUpdate) {
+        this.dateUpdate = dateUpdate;
+    }
+
+    public AuditEntity() {
+    }
+
+    public static class Builder {
+        private AuditEntity instance;
+
+        public Builder() {
+            instance = new AuditEntity();
+        }
+        public Builder codUser(ObjectId codUser) {
+            instance.codUser = codUser;
+            return this;
+        }
+        public Builder dateRegister(Date dateRegister) {
+            instance.dateRegister = dateRegister;
+            return this;
+        }
+        public Builder codUserUpdate(ObjectId codUserUpdate) {
+            instance.codUserUpdate = codUserUpdate;
+            return this;
+        }
+        public Builder dateUpdate(Date dateUpdate) {
+            instance.dateUpdate = dateUpdate;
+            return this;
+        }
+
+        public Builder mail(String mail) {
+            instance.mail = mail;
+            return this;
+        }
+        public Builder mailUpdate(String mailUpdate) {
+            instance.mailUpdate = mailUpdate;
+            return this;
+        }
+        public AuditEntity build() {
+            return instance;
+        }
+    }
 
 }

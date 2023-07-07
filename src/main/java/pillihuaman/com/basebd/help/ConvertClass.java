@@ -2,7 +2,6 @@ package pillihuaman.com.basebd.help;
 
 
 import pillihuaman.com.base.request.*;
-import pillihuaman.com.base.response.CorouselImage;
 import pillihuaman.com.base.response.RespControl;
 import pillihuaman.com.base.response.RespProduct;
 import pillihuaman.com.base.response.RespUser;
@@ -36,13 +35,15 @@ public class ConvertClass {
 
     }
 
+
+
     public static Product ProductDtoToProductTbl(ReqProduct request) {
         Product resp = new Product();
         resp.setDescription(request.getDescription());
         resp.setExpirationDate(request.getExpirationDate());
         resp.setIdImagen(request.getIdImagen());
         resp.setIdPrice(request.getIdPrice());
-       // resp.setIdProduct(request.getIdProduct());
+        // resp.setIdProduct(request.getIdProduct());
         resp.setIdSystem(request.getIdSystem());
         resp.setIdType(request.getIdType());
         resp.setIdUser(request.getIdUser());
@@ -51,40 +52,7 @@ public class ConvertClass {
 
     }
 
-    public static ProductStock ProductStockRequestDtoToProductStock(ReqStock request) {
-        ProductStock resp = new ProductStock();
-        Size siz = new Size();
-        Stock stock = new Stock();
-        List<Size> lstSiz = new ArrayList<>();
-        request.getSize();
-        for (ReqSize s :
-                request.getSize()) {
-            Size sizs = new Size();
-            sizs.setParameter(s.getParameter());
-            List<Color> col = new ArrayList<>();
-            for (ReqColor c :
-                    s.getColor()) {
-                Color cols = new Color();
-                List<File> lst = new ArrayList<>();
-                //cols.setFile(lst);
-                cols.setIdProduct(c.getIdProduct());
-                col.add(cols);
-                sizs.setColor(col);
-            }
-            lstSiz.add(sizs);
-        }
 
-        stock.setSize(lstSiz);
-        resp.setCreationDate(request.getCreationDate());
-        resp.setExpirationDate(request.getExpirationDate());
-        Product product = new Product();
-        //  product.setIdProduct(request.getIdProduct());
-        // resp.setProduct(product);
-        resp.setStock(stock);
-        //resp.setStock();
-        return resp;
-
-    }
 
 
     public static List<RespProduct> listProductoRespProduct(List<Product> lstproduct) {
@@ -100,7 +68,7 @@ public class ConvertClass {
                 resp.setIdProduct(product.getId().toString());
                 resp.setIdSystem(product.getIdSystem());
                 resp.setIdType(product.getIdType());
-               resp.setIdUser(product.getIdUser().toString());
+                resp.setIdUser(product.getIdUser().toString());
                 resp.setName(product.getName());
                 lstresp.add(resp);
 
@@ -111,34 +79,6 @@ public class ConvertClass {
 
     }
 
-    public static User userDtoToUserTbl(ReqUser request) {
-        User resp = new User();
-
-        resp.setAlias(request.getAlias());
-        resp.setId_system(request.getId_System());
-        resp.setMail(request.getMail());
-        resp.setMobil_phone(request.getMobilPhone());
-        resp.setPassword(request.getPassword());
-        resp.setUser_name(request.getUsername());
-
-        return resp;
-
-    }
-
-    public static RespUser respUserDtoToUser(User request) {
-        RespUser resp = new RespUser();
-
-        resp.setAlias(request.getAlias());
-        resp.setId_system(request.getId_system());
-        resp.setMail(request.getMail());
-        resp.setMobil_Phone(request.getMobil_phone());
-        resp.setUsername(request.getUser_name());
-        resp.setPassword(request.getPassword());
-
-
-        return resp;
-
-    }
 
     public static List<CorouselImage> respListImagenFileToImagenGeneral(List<ImagenFile> request) {
         List<CorouselImage> lst = new ArrayList<>();
@@ -201,5 +141,72 @@ public class ConvertClass {
         return resp;
 
     }
+    public static ProductStock ProductStockRequestDtoToProductStock(ReqStock request) {
+        ProductStock resp = new ProductStock();
+        Size siz = new Size();
+        Stock stock = new Stock();
+        List<Size> lstSiz = new ArrayList<>();
+        request.getSize();
+        for (ReqSize s :
+                request.getSize()) {
+            Size sizs = new Size();
+            sizs.setParameter(s.getParameter());
+            List<Color> col = new ArrayList<>();
+            for (ReqColor c :
+                    s.getColor()) {
+                Color cols = new Color();
+                List<File> lst = new ArrayList<>();
+                //cols.setFile(lst);
+                //cols.setIdProduct(c.getIdProduct());
+                col.add(cols);
+                sizs.setColor(col);
+            }
+            lstSiz.add(sizs);
+        }
+
+        stock.setSize(lstSiz);
+        resp.setCreationDate(request.getCreationDate());
+        resp.setExpirationDate(request.getExpirationDate());
+        Product product = new Product();
+        //  product.setIdProduct(request.getIdProduct());
+        // resp.setProduct(product);
+        resp.setStock(stock);
+        //resp.setStock();
+        return resp;
+
+    }
+
+
+
+    public static User userDtoToUserTbl(ReqUser request) {
+        User resp = new User();
+
+        resp.setAlias(request.getAlias());
+        resp.setId_system(request.getId_System());
+        resp.setMail(request.getMail());
+        resp.setMobil_phone(request.getMobilPhone());
+        resp.setPassword(request.getPassword());
+        resp.setUser_name(request.getUsername());
+
+        return resp;
+
+    }
+
+    public static RespUser respUserDtoToUser(User request) {
+        RespUser resp = new RespUser();
+
+        resp.setAlias(request.getAlias());
+        resp.setId_system(request.getId_system());
+        resp.setMail(request.getMail());
+        resp.setMobil_Phone(request.getMobil_phone());
+        resp.setUsername(request.getUser_name());
+        resp.setPassword(request.getPassword());
+
+
+        return resp;
+
+    }
+
+
 
 }

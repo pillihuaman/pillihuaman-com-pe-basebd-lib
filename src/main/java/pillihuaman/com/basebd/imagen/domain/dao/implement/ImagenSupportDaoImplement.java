@@ -1,5 +1,21 @@
 package pillihuaman.com.basebd.imagen.domain.dao.implement;
 
+import com.google.common.io.ByteStreams;
+import com.mongodb.client.MongoCollection;
+import com.mongodb.client.gridfs.GridFSBucket;
+import com.mongodb.client.gridfs.model.GridFSUploadOptions;
+import com.mongodb.client.model.Filters;
+import com.mongodb.client.model.Updates;
+import org.bson.Document;
+import org.bson.types.ObjectId;
+import org.springframework.stereotype.Component;
+import pillihuaman.com.basebd.common.ProductStock;
+import pillihuaman.com.basebd.config.AbstractMongoDBRepositoryImpl;
+import pillihuaman.com.basebd.help.Constants;
+import pillihuaman.com.basebd.imagen.domain.DetailImage;
+import pillihuaman.com.basebd.imagen.domain.Imagen;
+import pillihuaman.com.basebd.imagen.domain.dao.ImagenSupportDAO;
+
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -7,26 +23,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
-
-import com.mongodb.client.model.Filters;
-import com.mongodb.client.model.Updates;
-import org.bson.Document;
-import org.bson.types.ObjectId;
-import org.springframework.stereotype.Component;
-
-import com.google.common.io.ByteStreams;
-import com.mongodb.client.MongoCollection;
-import com.mongodb.client.gridfs.GridFSBucket;
-import com.mongodb.client.gridfs.model.GridFSUploadOptions;
-
-import pillihuaman.com.basebd.common.ProductStock;
-import pillihuaman.com.basebd.config.AbstractMongoDBRepositoryImpl;
-import pillihuaman.com.basebd.help.AuditEntity;
-import pillihuaman.com.basebd.help.Constants;
-import pillihuaman.com.basebd.imagen.domain.DetailImage;
-import pillihuaman.com.basebd.imagen.domain.Imagen;
-import pillihuaman.com.basebd.imagen.domain.dao.ImagenSupportDAO;
-import pillihuaman.com.basebd.imagenProducer.domain.ImagenFile;
 
 @Component
 public class ImagenSupportDaoImplement extends AbstractMongoDBRepositoryImpl<Imagen> implements ImagenSupportDAO {
@@ -109,7 +105,6 @@ public class ImagenSupportDaoImplement extends AbstractMongoDBRepositoryImpl<Ima
 		doc.put("idProduct", request.getIdProduct());
 		doc.put("countRanking", 0);
 		doc.put("clickCount", 0);
-		docAud.put("codUsuRegis", request.getAuditEntity().getCodUsuRegis());
 		docAud.put("fecRegis", new Date());
 		doc.put("auditEntity", docAud);
 		return save(doc);

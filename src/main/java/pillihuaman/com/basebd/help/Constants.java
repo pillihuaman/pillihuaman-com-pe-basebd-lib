@@ -184,5 +184,8 @@ public class Constants {
 	public static final String COLLECTION_IMAGEN_FILES = "files.files";
 	public static final String COLLECTION_IMAGEN_TEMP_FILES = "imagenTemp.files";
 	public static final String COLLECTION_CONTROL = "control";
+	public static final String COLLECTION_PARAMETER = "parameter";
+
+
 	}
 

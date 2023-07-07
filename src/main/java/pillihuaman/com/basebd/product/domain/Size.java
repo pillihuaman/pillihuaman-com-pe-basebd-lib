@@ -1,12 +1,13 @@
 package pillihuaman.com.basebd.product.domain;
 
 
+import org.bson.types.ObjectId;
 import pillihuaman.com.base.commons.Parameters;
 
 import java.util.List;
 
 public class Size  {
-    private int id;
+    private ObjectId id;
     private Parameters parameter;
     List<Color> color;
 
@@ -18,11 +19,11 @@ public class Size  {
         this.color = color;
     }
 
-    public int getId() {
+    public ObjectId getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(ObjectId id) {
         this.id = id;
     }
 

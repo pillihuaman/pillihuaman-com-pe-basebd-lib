@@ -9,7 +9,7 @@ import java.util.List;
 public interface ParameterRepository extends BaseMongoRepository<Parameter> {
 
 
-    boolean saveParemeter(Parameter request, MyJsonWebToken tok);
+    Parameter  saveParemeter(Parameter request, MyJsonWebToken tok);
     List<Parameter> getParameterByIdCode(Parameter request);
-
+    List<Parameter> getParameterByName(String request);
 }

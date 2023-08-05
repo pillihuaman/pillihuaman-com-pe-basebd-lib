@@ -1,5 +1,7 @@
 package pillihuaman.com.basebd.parameter.domain;
 
+import lombok.*;
+import org.bson.codecs.pojo.annotations.BsonCreator;
 import org.bson.codecs.pojo.annotations.BsonProperty;
 import org.bson.types.ObjectId;
 import org.springframework.stereotype.Component;
@@ -8,6 +10,10 @@ import java.io.Serializable;
 import java.util.List;
 
 @Component
+@Builder
+@Setter
+@Getter
+@NoArgsConstructor // Add the no-argument constructor
 public class Parameter implements Serializable {
     private static final long serialVersionUID = 1L;
 
@@ -20,46 +26,16 @@ public class Parameter implements Serializable {
     private String name;
     private String description;
     private List<String> parameterItems;
-
-    public ObjectId getId() {
-        return id;
-    }
-
-    public void setId(ObjectId id) {
+    @BsonCreator
+    public Parameter(@BsonProperty("_id") ObjectId id,
+                     @BsonProperty("idCode") String idCode,
+                     @BsonProperty("name") String name,
+                     @BsonProperty("description") String description,
+                     @BsonProperty("parameterItems") List<String> parameterItems) {
         this.id = id;
-    }
-
-
-
-    public String getIdCode() {
-        return idCode;
-    }
-
-    public void setIdCode(String idCode) {
         this.idCode = idCode;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
         this.name = name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
         this.description = description;
-    }
-
-    public List<String> getParameterItems() {
-        return parameterItems;
-    }
-
-    public void setParameterItems(List<String> parameterItems) {
         this.parameterItems = parameterItems;
     }
 }

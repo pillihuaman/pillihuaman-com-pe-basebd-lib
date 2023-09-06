@@ -6,6 +6,7 @@ import org.bson.Document;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 import pillihuaman.com.basebd.config.AbstractMongoRepositoryImpl;
 import pillihuaman.com.basebd.token.dao.TokenRepository;
@@ -18,7 +19,7 @@ import pillihuaman.com.lib.commons.MyJsonWebToken;
 import java.util.*;
 
 
-@Repository
+@Component
 public class UserDaoImplement extends AbstractMongoRepositoryImpl<User> implements UserRepository {
 
 
@@ -29,6 +30,7 @@ public class UserDaoImplement extends AbstractMongoRepositoryImpl<User> implemen
     UserDaoImplement() {
         DS_WRITE = Constants.DW;
         // DS_READ = Constants.DR;
+        COLLECTION = "";
         COLLECTION = Constants.COLLECTION_USER;
     }
 
@@ -36,7 +38,7 @@ public class UserDaoImplement extends AbstractMongoRepositoryImpl<User> implemen
     @Override
     public Optional<User> findByEmail(String mail) {
         Optional<UserDetails> op = null;
-        MongoCollection<User> collection = getCollection(this.collectionName, User.class);
+        MongoCollection<User> collection = getCollection( Constants.COLLECTION_USER, User.class);
         Document query = new Document().append("email", mail);
         User user = collection.find(query, User.class).limit(1).first();
         user.setPassword(user.getPasswordP());
@@ -54,7 +56,7 @@ public class UserDaoImplement extends AbstractMongoRepositoryImpl<User> implemen
         try {
             MongoClient mongoClient = MongoClients.create("mongodb://localhost:27017");
             MongoDatabase database = mongoClient.getDatabase(DS_WRITE);
-            MongoCollection<Document> collection = database.getCollection(COLLECTION);
+            MongoCollection<Document> collection = database.getCollection( Constants.COLLECTION_USER);
             Document sort = new Document().append("_id", -1);
             Document lis = collection.find().sort(sort).first();
             if (Objects.nonNull(lis)) {
@@ -85,7 +87,7 @@ public class UserDaoImplement extends AbstractMongoRepositoryImpl<User> implemen
 
     @Override
     public List<User> findUserName(String username) {
-        MongoCollection<User> collection = getCollection(this.collectionName, User.class);
+        MongoCollection<User> collection = getCollection( Constants.COLLECTION_USER, User.class);
         Document query = new Document().append("email", username);
         List<User> lisUser = collection.find(query, User.class).limit(1).into(new ArrayList<User>());
 
@@ -134,7 +136,7 @@ public class UserDaoImplement extends AbstractMongoRepositoryImpl<User> implemen
 
     @Override
     public List<User> findLastUser() {
-        MongoCollection<User> collection = getCollection(this.collectionName, User.class);
+        MongoCollection<User> collection = getCollection( Constants.COLLECTION_USER, User.class);
         Document query = new Document();
         Document sort = new Document().append("id_user", -1);
         List<User> lisProduct = collection.find(query, User.class).sort(sort).limit(1).into(new ArrayList<User>());
@@ -143,7 +145,7 @@ public class UserDaoImplement extends AbstractMongoRepositoryImpl<User> implemen
 
     @Override
     public List<User> findUserById(ObjectId id) {
-        MongoCollection<User> collection = getCollection(this.collectionName, User.class);
+        MongoCollection<User> collection = getCollection( Constants.COLLECTION_USER, User.class);
         Document query = new Document().append("_id", id);
         List<User> lisUser = collection.find(query, User.class).limit(1).into(new ArrayList<User>());
         return lisUser;

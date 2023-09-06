@@ -3,7 +3,9 @@ package pillihuaman.com.basebd.token.dao.implement;
 import com.mongodb.client.MongoCollection;
 import org.bson.Document;
 import org.bson.types.ObjectId;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 import pillihuaman.com.basebd.config.AbstractMongoRepositoryImpl;
 import pillihuaman.com.basebd.help.Constants;
 import pillihuaman.com.basebd.token.Token;
@@ -13,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-@Repository
+@Component
 public class TokenDaoImplement extends AbstractMongoRepositoryImpl<Token> implements TokenRepository {
     public TokenDaoImplement() {
         DS_WRITE = Constants.DW;
@@ -43,7 +45,7 @@ public class TokenDaoImplement extends AbstractMongoRepositoryImpl<Token> implem
     @Override
     public Optional<Token> findByToken(String token) {
         MongoCollection<Token> collection = getCollection(this.collectionName, Token.class);
-        Document query = new Document().append("token", token);
+        Document query = new Document().append("_id", token);
 
         Token toke = collection.find(query, Token.class).limit(1).first();
         return Optional.ofNullable(toke);

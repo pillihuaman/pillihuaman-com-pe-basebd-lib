@@ -1,13 +1,13 @@
 package pillihuaman.com.basebd.user;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
+import lombok.*;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.stereotype.Component;
+import pillihuaman.com.basebd.system.System;
 import pillihuaman.com.basebd.token.Token;
 import pillihuaman.com.basebd.help.AuditEntity;
 
@@ -15,35 +15,41 @@ import java.io.Serializable;
 import java.util.Collection;
 import java.util.List;
 
-@Component
-@Builder
+
+
 @AllArgsConstructor
 @Document(collection = "user")
-public class User implements UserDetails, Serializable {
+@Builder
+@NoArgsConstructor
+public class User implements UserDetails ,Serializable{
 
     private static final long serialVersionUID = 1L;
-
-   @Id
+    @Id
     private ObjectId id;
-
     private AuditEntity auditEntity;
     private String alias;
-    private String api_password;
-    private int id_system;
+    private List<System> idSystem;
+    @Indexed(unique = true)
     private String email;
-    private String mobil_phone;
+    private String mobilPhone;
+    private String user;
+    @Getter
+    private String userName;
+    private String userNameP;
+    private String apiPassword;
+    private String passwordP;
+    @Getter
     private String password;
-    private String sal_password;
+    private String salPassword;
+    private boolean enabled;
     private String name;
-    private String type_document;
-    private String numType_document;
-    private ObjectId id_user;
+    private String typeDocument;
+    @Indexed(unique = true)
+    private String numTypeDocument;
     private Role role;
     private List<Token> tokens;
 
-
-    public User() {
-
+    public User(User user) {
     }
 
     public ObjectId getId() {
@@ -70,20 +76,12 @@ public class User implements UserDetails, Serializable {
         this.alias = alias;
     }
 
-    public String getApi_password() {
-        return api_password;
+    public List<System> getIdSystem() {
+        return idSystem;
     }
 
-    public void setApi_password(String api_password) {
-        this.api_password = api_password;
-    }
-
-    public int getId_system() {
-        return id_system;
-    }
-
-    public void setId_system(int id_system) {
-        this.id_system = id_system;
+    public void setIdSystem(List<System> idSystem) {
+        this.idSystem = idSystem;
     }
 
     public String getEmail() {
@@ -94,24 +92,68 @@ public class User implements UserDetails, Serializable {
         this.email = email;
     }
 
-    public String getMobil_phone() {
-        return mobil_phone;
+    public String getMobilPhone() {
+        return mobilPhone;
     }
 
-    public void setMobil_phone(String mobil_phone) {
-        this.mobil_phone = mobil_phone;
+    public void setMobilPhone(String mobilPhone) {
+        this.mobilPhone = mobilPhone;
+    }
+
+    public String getUser() {
+        return user;
+    }
+
+    public void setUser(String user) {
+        this.user = user;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getUserNameP() {
+        return userNameP;
+    }
+
+    public void setUserNameP(String userNameP) {
+        this.userNameP = userNameP;
+    }
+
+    public String getApiPassword() {
+        return apiPassword;
+    }
+
+    public void setApiPassword(String apiPassword) {
+        this.apiPassword = apiPassword;
+    }
+
+    public String getPasswordP() {
+        return passwordP;
+    }
+
+    public void setPasswordP(String passwordP) {
+        this.passwordP = passwordP;
     }
 
     public void setPassword(String password) {
         this.password = password;
     }
 
-    public String getSal_password() {
-        return sal_password;
+    public String getSalPassword() {
+        return salPassword;
     }
 
-    public void setSal_password(String sal_password) {
-        this.sal_password = sal_password;
+    public void setSalPassword(String salPassword) {
+        this.salPassword = salPassword;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
     }
 
     public String getName() {
@@ -122,28 +164,20 @@ public class User implements UserDetails, Serializable {
         this.name = name;
     }
 
-    public String getType_document() {
-        return type_document;
+    public String getTypeDocument() {
+        return typeDocument;
     }
 
-    public void setType_document(String type_document) {
-        this.type_document = type_document;
+    public void setTypeDocument(String typeDocument) {
+        this.typeDocument = typeDocument;
     }
 
-    public String getNumType_document() {
-        return numType_document;
+    public String getNumTypeDocument() {
+        return numTypeDocument;
     }
 
-    public void setNumType_document(String numType_document) {
-        this.numType_document = numType_document;
-    }
-
-    public ObjectId getId_user() {
-        return id_user;
-    }
-
-    public void setId_user(ObjectId id_user) {
-        this.id_user = id_user;
+    public void setNumTypeDocument(String numTypeDocument) {
+        this.numTypeDocument = numTypeDocument;
     }
 
     public Role getRole() {
@@ -164,7 +198,7 @@ public class User implements UserDetails, Serializable {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return role.getAuthorities();
+        return null;
     }
 
     @Override

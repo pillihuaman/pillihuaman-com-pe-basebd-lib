@@ -2,6 +2,7 @@ package pillihuaman.com.basebd.token.dao.implement;
 
 import com.mongodb.client.MongoCollection;
 import org.bson.Document;
+import org.bson.types.ObjectId;
 import org.springframework.stereotype.Repository;
 import pillihuaman.com.basebd.config.AbstractMongoRepositoryImpl;
 import pillihuaman.com.basebd.help.Constants;
@@ -14,12 +15,13 @@ import java.util.Optional;
 
 @Repository
 public class TokenDaoImplement extends AbstractMongoRepositoryImpl<Token> implements TokenRepository {
-    TokenDaoImplement() {
+    public TokenDaoImplement() {
         DS_WRITE = Constants.DW;
         // DS_READ = Constants.DR;
         COLLECTION = Constants.COLLECTION_TOKEN;
 
     }
+
     @Override
     public Class<Token> provideEntityClass() {
         // TODO Auto-generated method stub
@@ -27,11 +29,13 @@ public class TokenDaoImplement extends AbstractMongoRepositoryImpl<Token> implem
     }
 
 
-
     @Override
     public List<Token> findAllValidTokenByUser(Object id) {
         MongoCollection<Token> collection = getCollection(this.collectionName, Token.class);
-        Document query = new Document().append("_id", id);
+        //Document query = new Document().append("_id", id);
+        //Created with NoSQLBooster, the essential IDE for MongoDB - https://nosqlbooster.com
+        Document query = new Document()
+                .append("user._id", id);
         List<Token> lsiTok = collection.find(query, Token.class).limit(1).into(new ArrayList<Token>());
         return lsiTok;
     }

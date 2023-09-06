@@ -16,6 +16,7 @@ import com.mongodb.client.MongoDatabase;
 
 import pillihuaman.com.basebd.help.ConvertClass;
 import pillihuaman.com.basebd.security.PasswordUtils;
+import pillihuaman.com.basebd.userGeneral.Mapper.MapperUser;
 import pillihuaman.com.lib.request.ReqUser;
 import pillihuaman.com.lib.response.RespBase;
 import pillihuaman.com.lib.response.RespUser;
@@ -32,21 +33,10 @@ public class UserGeneralDaoImpl implements UserGeneralRepositoy {
 	public RespBase<RespUser> getUserByMail(String mail) {
 
 		RespBase<RespUser> respo = new RespBase<RespUser>();
-
 		try {
 			List<User> lis = userRepository.findUserByMail(mail);
-			RespUser obj = new RespUser();
-			for (User user : lis) {
-				obj.setAlias(user.getAlias());
-				obj.setApi_Password(user.getApi_password());
-				obj.setId_system(user.getId_system());
-				obj.setMail(user.getEmail());
-				obj.setPassword(user.getPassword());
-				obj.setSal_Password(user.getSal_password());
-				obj.setUsername(user.getUsername());
-				obj.setId_user(user.getId().toString());
-			}
-			respo.setPayload(obj);
+			RespUser  res = MapperUser.INSTANCE.userToRespUser(lis.stream().findFirst().get());
+			respo.setPayload(res);
 
 		} catch (Exception e) {
 			respo.getStatus().setSuccess(Boolean.FALSE);
@@ -64,7 +54,7 @@ public class UserGeneralDaoImpl implements UserGeneralRepositoy {
 
 			List<User> listaUsuario = userRepository.findUserName(username);
 			if (listaUsuario != null && listaUsuario.size() > 0) {
-				respo.setPayload(ConvertClass.UserTblToUserDTO(listaUsuario.get(0)));
+				//respo.setPayload(ConvertClass.UserTblToUserDTO(listaUsuario.get(0)));
 
 			}
 
@@ -98,7 +88,7 @@ public class UserGeneralDaoImpl implements UserGeneralRepositoy {
 		RespBase<RespUser> response = new RespBase<RespUser>();
 		List<User> listaUsuario = userRepository.findLastUser();
 		if (listaUsuario != null && listaUsuario.size() > 0) {
-			response.setPayload(ConvertClass.UserTblToUserDTO(listaUsuario.get(0)));
+			//response.setPayload(ConvertClass.UserTblToUserDTO(listaUsuario.get(0)));
 
 		}
 		return response;
@@ -109,8 +99,8 @@ public class UserGeneralDaoImpl implements UserGeneralRepositoy {
 		RespBase<RespUser> response = new RespBase<RespUser>();
 		try {
 			BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
-			User tbl = new User();
-			tbl = ConvertClass.userDtoToUserTbl(request);
+			User tbl =null;// new User();
+			tbl =null;// ConvertClass.userDtoToUserTbl(request);
 
 			String salt = PasswordUtils.getSalt(30);
 			String mySecurePassword = PasswordUtils.generateSecurePassword(request.getPassword(), salt);
@@ -120,9 +110,9 @@ public class UserGeneralDaoImpl implements UserGeneralRepositoy {
 			System.out.println("Api Password   " + mySecurePassword);
 			System.out.println("Password   " + codeString);
 
-			tbl.setApi_password(mySecurePassword);
-			tbl.setSal_password(salt);
-			tbl.setPassword(codeString);
+			//tbl.setApi_password(mySecurePassword);
+			//tbl.setSal_password(salt);
+		//	tbl.setPassword(codeString);
 			List<User> list = userRepository.findLastUser();
 			/*if (list != null && list.size() > 0) {
 				tbl.setId_user(list.get(0).getId_user() + 1);
@@ -133,7 +123,7 @@ public class UserGeneralDaoImpl implements UserGeneralRepositoy {
 			}*/
 
 			response.getStatus().setSuccess(Boolean.TRUE);
-			response.setPayload(new RespUser());
+			//response.setPayload(new RespUser());
 		} catch (Exception e) {
 
 			response.getStatus().setSuccess(Boolean.FALSE);

@@ -1,9 +1,11 @@
 package pillihuaman.com.basebd.user.dao;
 
 import org.bson.types.ObjectId;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import pillihuaman.com.basebd.config.BaseMongoRepository;
 import pillihuaman.com.basebd.user.User;
+import pillihuaman.com.lib.commons.MyJsonWebToken;
 
 
 import java.util.List;
@@ -15,11 +17,12 @@ public interface UserRepository extends BaseMongoRepository<User> {
 
 	List<User> findUserName(String mail);
 
-	boolean saveUser(User request);
+	User saveUser(User request, MyJsonWebToken jwt);
 
 	List<User> findLastUser();
 
 	List<User> findUserById(ObjectId id);
 
-	Optional<UserDetailsService> findByEmail(String mail);
+	Optional<User> findByEmail(String mail);
+	int getLastIdUser();
 }

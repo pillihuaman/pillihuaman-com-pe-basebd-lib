@@ -23,9 +23,9 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 import com.mongodb.BasicDBObject;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
+import org.springframework.context.annotation.DependsOn;
 
 public abstract class AbstractMongoRepositoryImpl<T> implements BaseMongoRepository<T> {
-
     @Autowired
     private AppProperties appProperties;
     @Autowired
@@ -60,12 +60,12 @@ public abstract class AbstractMongoRepositoryImpl<T> implements BaseMongoReposit
     /**
      * Nombre de la coleccion para operaciones de Lectura
      */
-    MongoCollection<T> mongoCollectionRead;
+    MongoCollection<T> mongoCollectionWrite;
 
     /**
      * Nombre de la coleccion para operaciones de Escritura
      */
-    MongoCollection<T> mongoCollectionWrite;
+    MongoCollection<T> mongoCollectionRead;
 
     /**
      * Entity Class para las colecciones de MongoDB
@@ -76,8 +76,8 @@ public abstract class AbstractMongoRepositoryImpl<T> implements BaseMongoReposit
      * Se debe indicar la clase a devolver o procesar
      */
     public abstract Class<T> provideEntityClass();
-@Autowired
-   private YamlFooProperties yamlFooProperties;
+    @Autowired
+    private YamlFooProperties yamlFooProperties;
     @PostConstruct
     public void init() {
         try {
@@ -85,15 +85,11 @@ public abstract class AbstractMongoRepositoryImpl<T> implements BaseMongoReposit
             mapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
             mapper.configure(DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY, true);
             this.entityClass = provideEntityClass();
-             List<MongoDBConexion> ls = yamlFooProperties.conexiones;
-
-            // con.getConexion();
-            // this.mongoDatabaseWrite =
-            // configMain.getDataBases(appProperties.getDatabase(),
-            // configMain.getConexion());
-            this.mongoDatabaseRead = MongoDBClient.getDataBaseByDataSource(DS_WRITE);
-
+            List<MongoDBConexion> ls = yamlFooProperties.conexiones;
             this.collectionName = COLLECTION;
+            this.mongoDatabaseWrite =MongoDBClient.getDataBaseByDataSource(DS_WRITE); //configMain.getDataBases("alamodaperu", configMain.getConexion());
+            this.mongoDatabaseRead = MongoDBClient.getDataBaseByDataSource(DS_WRITE);
+            this.mongoCollectionRead = mongoDatabaseRead.getCollection(collectionName, entityClass);
             this.mongoCollectionWrite = mongoDatabaseWrite.getCollection(collectionName, entityClass);
         }
         catch (Exception ex){
@@ -102,7 +98,7 @@ public abstract class AbstractMongoRepositoryImpl<T> implements BaseMongoReposit
     }
 
     public List<T> findAll() {
-        List<T> objetos = (List<T>) mongoCollectionRead.find().into(new ArrayList<T>());
+        List<T> objetos = (List<T>) mongoCollectionWrite.find().into(new ArrayList<T>());
         return objetos;
     }
 
@@ -114,7 +110,7 @@ public abstract class AbstractMongoRepositoryImpl<T> implements BaseMongoReposit
      */
     public List<T> findAllByQuery(Bson query) {
         log.debug("query==>" + query.toString());
-        List<T> objetos = (List<T>) mongoCollectionRead.find(query).into(new ArrayList<T>());
+        List<T> objetos = (List<T>) mongoCollectionWrite.find(query).into(new ArrayList<T>());
         return objetos;
     }
 
@@ -131,7 +127,7 @@ public abstract class AbstractMongoRepositoryImpl<T> implements BaseMongoReposit
     public List<T> findAllWithHintByQuery(Bson query, Bson index) {
         log.debug("query==>" + query.toString());
         log.debug("hint==>" + index.toString());
-        List<T> objetos = (List<T>) mongoCollectionRead.find(query).hint(index).into(new ArrayList<T>());
+        List<T> objetos = (List<T>) mongoCollectionWrite.find(query).hint(index).into(new ArrayList<T>());
         return objetos;
     };
 
@@ -143,7 +139,7 @@ public abstract class AbstractMongoRepositoryImpl<T> implements BaseMongoReposit
      */
     public T findOneById(Bson query) {
         log.debug("query==>" + query.toString());
-        final Optional<T> objeto = Optional.ofNullable((T) mongoCollectionRead.find(query).first());
+        final Optional<T> objeto = Optional.ofNullable((T) mongoCollectionWrite.find(query).first());
         try {
             if (objeto.isPresent()) {
                 return objeto.get();
@@ -166,7 +162,7 @@ public abstract class AbstractMongoRepositoryImpl<T> implements BaseMongoReposit
     public T findOneWithHintByQuery(Bson query, Bson index) {
         log.debug("query==>" + query.toString());
         log.debug("hint==>" + index.toString());
-        final Optional<T> objeto = Optional.ofNullable((T) mongoCollectionRead.find(query).hint(index).first());
+        final Optional<T> objeto = Optional.ofNullable((T) mongoCollectionWrite.find(query).hint(index).first());
         try {
             if (objeto.isPresent()) {
                 return objeto.get();
@@ -183,12 +179,13 @@ public abstract class AbstractMongoRepositoryImpl<T> implements BaseMongoReposit
      * @param document
      */
     public T save(T document) {
-        mongoCollectionWrite.insertOne(document);
+        mongoCollectionWrite .insertOne(document);
         return document;
     }
 
     /**
-     * Grabar el documento en la coleccion del repository Utiliza la base de datos
+     * Grabar el documento en la colec
+     * cion del repository Utiliza la base de datos
      * definida para Escritura
      *
      * @param document
@@ -326,9 +323,9 @@ public abstract class AbstractMongoRepositoryImpl<T> implements BaseMongoReposit
      * @return
      */
     public T updateCollection(String colname, Bson filter, Bson query) {
-        mongoCollectionRead.updateOne(filter, query);
-        mongoCollectionRead = mongoDatabaseWrite.getCollection(collectionName, entityClass);
-        return mongoCollectionRead.find(filter).first();
+        mongoCollectionWrite.updateOne(filter, query);
+        mongoCollectionWrite = mongoDatabaseWrite.getCollection(collectionName, entityClass);
+        return mongoCollectionWrite.find(filter).first();
     }
 
     public <T> T insertOneCollection(String colname, Class<T> t, T entity) {
@@ -363,5 +360,6 @@ public abstract class AbstractMongoRepositoryImpl<T> implements BaseMongoReposit
         Document result = getCollection(collectionName).findOneAndUpdate(searchQuery, updateQuery);
         return String.valueOf(result.get("seq"));
     }
+
 
 }

@@ -10,6 +10,7 @@ import pillihuaman.com.basebd.product.Size;
 import pillihuaman.com.basebd.product.Stock;
 import pillihuaman.com.basebd.user.User;
 import pillihuaman.com.lib.request.*;
+import pillihuaman.com.lib.request.*;
 import pillihuaman.com.lib.response.RespProduct;
 import pillihuaman.com.lib.response.RespUser;
 
@@ -22,17 +23,6 @@ import java.util.UUID;
 public class ConvertClass {
 
 
-    public static RespUser UserTblToUserDTO(User request) {
-        RespUser resp = new RespUser();
-        resp.setMail(request.getEmail());
-        resp.setUsername(request.getUsername());
-        resp.setAlias(request.getAlias());
-        resp.setApi_Password(request.getApi_password());
-        resp.setSal_Password(request.getSal_password());
-        resp.setPassword(request.getPassword());
-        return resp;
-
-    }
 
 
 
@@ -171,37 +161,6 @@ public class ConvertClass {
         // resp.setProduct(product);
         resp.setStock(stock);
         //resp.setStock();
-        return resp;
-
-    }
-
-
-
-    public static User userDtoToUserTbl(ReqUser request) {
-        User resp = new User();
-
-        resp.setAlias(request.getAlias());
-        resp.setId_system(request.getId_System());
-        resp.setEmail(request.getMail());
-        resp.setMobil_phone(request.getMobilPhone());
-        resp.setPassword(request.getPassword());
-        resp.setName(request.getUsername());
-
-        return resp;
-
-    }
-
-    public static RespUser respUserDtoToUser(User request) {
-        RespUser resp = new RespUser();
-
-        resp.setAlias(request.getAlias());
-        resp.setId_system(request.getId_system());
-        resp.setMail(request.getEmail());
-        resp.setMobil_Phone(request.getMobil_phone());
-        resp.setUsername(request.getUsername());
-        resp.setPassword(request.getPassword());
-
-
         return resp;
 
     }

@@ -1,6 +1,7 @@
 package pillihuaman.com.basebd.control.dao;
 
-import pillihuaman.com.lib.commons.MyJsonWebToken;
+import pillihuaman.com.basebd.user.User;
+import pillihuaman.com.basebd.common.MyJsonWebToken;
 import pillihuaman.com.lib.request.ReqControl;
 import pillihuaman.com.lib.response.RespControl;
 import pillihuaman.com.basebd.config.BaseMongoRepository;
@@ -11,5 +12,7 @@ import java.util.List;
 public interface ControlDAO extends BaseMongoRepository<Control> {
 
 	List<Control> listControl(ReqControl reqControl);
-	List<RespControl> saveControl(ReqControl reqControl, MyJsonWebToken to);
+	Control saveControl(Control reqControl, MyJsonWebToken to);
+	List<Control> findByUser(User user);
+
 }

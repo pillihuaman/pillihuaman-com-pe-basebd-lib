@@ -44,7 +44,7 @@ logging:
     root: INFO
     org.springframework.web: DEBUG
     org.springframework.security: INFO
-    com.yourpackage: DEBUG  # Change to the package name of your application
+    pillihuaman.com.basebd: DEBUG  # Change to the package name of your application
 
 # Other Application Specific Configurations
 # Add your custom configurations here as needed.

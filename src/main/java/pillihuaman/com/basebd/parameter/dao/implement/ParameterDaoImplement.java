@@ -4,11 +4,10 @@ import com.mongodb.client.MongoCollection;
 import org.bson.Document;
 import org.bson.types.ObjectId;
 import org.springframework.stereotype.Component;
+import pillihuaman.com.basebd.common.MyJsonWebToken;
 import pillihuaman.com.basebd.parameter.Parameter;
 import pillihuaman.com.basebd.config.AbstractMongoRepositoryImpl;
-import pillihuaman.com.lib.commons.MyJsonWebToken;
 import pillihuaman.com.basebd.help.Constants;
-import pillihuaman.com.basebd.help.Util;
 import pillihuaman.com.basebd.parameter.dao.ParameterRepository;
 
 import java.util.ArrayList;
@@ -36,7 +35,7 @@ public class ParameterDaoImplement extends AbstractMongoRepositoryImpl<Parameter
         doc.put("name", request.getName());
         doc.put("description", request.getDescription());
         doc.put("parameterItems", request.getParameterItems());
-        doc.put("auditEntity", Util.insertAuditEntity(tok));
+       // doc.put("auditEntity", Util.insertAuditEntity(tok));
 
         Document docs = save(doc);
 

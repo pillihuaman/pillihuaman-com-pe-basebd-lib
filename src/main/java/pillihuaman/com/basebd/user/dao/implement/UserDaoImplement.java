@@ -14,7 +14,7 @@ import pillihuaman.com.basebd.help.AuditEntity;
 import pillihuaman.com.basebd.help.Constants;
 import pillihuaman.com.basebd.user.User;
 import pillihuaman.com.basebd.user.dao.UserRepository;
-import pillihuaman.com.lib.commons.MyJsonWebToken;
+import pillihuaman.com.basebd.common.MyJsonWebToken;
 
 import java.util.*;
 
@@ -38,14 +38,18 @@ public class UserDaoImplement extends AbstractMongoRepositoryImpl<User> implemen
     @Override
     public Optional<User> findByEmail(String mail) {
         Optional<UserDetails> op = null;
-        MongoCollection<User> collection = getCollection( Constants.COLLECTION_USER, User.class);
+        MongoCollection<User> collection = getCollection(Constants.COLLECTION_USER, User.class);
         Document query = new Document().append("email", mail);
         User user = collection.find(query, User.class).limit(1).first();
-        user.setPassword(user.getPasswordP());
-        user.setTokens(tokenRepository.findAllValidTokenByUser(user.getId()));
-        if (user != null) {
-            return Optional.of(user);
+        if (user != null) {            user.setPassword(user.getPasswordP());
+            user.setTokens(tokenRepository.findAllValidTokenByUser(user.getId()));
+            if (user != null) {
+                return Optional.of(user);
+            } else {
+                return Optional.empty();
+            }
         } else {
+
             return Optional.empty();
         }
     }
@@ -56,9 +60,10 @@ public class UserDaoImplement extends AbstractMongoRepositoryImpl<User> implemen
         try {
             MongoClient mongoClient = MongoClients.create("mongodb://localhost:27017");
             MongoDatabase database = mongoClient.getDatabase(DS_WRITE);
-            MongoCollection<Document> collection = database.getCollection( Constants.COLLECTION_USER);
+            MongoCollection<Document> collection = database.getCollection(Constants.COLLECTION_USER);
             Document sort = new Document().append("_id", -1);
-            Document lis = collection.find().sort(sort).first();
+            Document lis =
+                    collection.find().sort(sort).first();
             if (Objects.nonNull(lis)) {
                 id = (int) lis.get("idUser");
             }
@@ -87,7 +92,7 @@ public class UserDaoImplement extends AbstractMongoRepositoryImpl<User> implemen
 
     @Override
     public List<User> findUserName(String username) {
-        MongoCollection<User> collection = getCollection( Constants.COLLECTION_USER, User.class);
+        MongoCollection<User> collection = getCollection(Constants.COLLECTION_USER, User.class);
         Document query = new Document().append("email", username);
         List<User> lisUser = collection.find(query, User.class).limit(1).into(new ArrayList<User>());
 
@@ -104,28 +109,11 @@ public class UserDaoImplement extends AbstractMongoRepositoryImpl<User> implemen
     public User saveUser(User request, MyJsonWebToken jwt) {
         User us = null;
         try {
-            Document doc = new Document();
             Document docAud = new Document();
             AuditEntity aud = new AuditEntity();
             aud.setDateRegister(new Date());
             aud.setMail(request.getEmail());
-            // aud.setCodUser(jwt.getUser().getIdUser());
-            // aud.setMail(jwt.getUser().getMail());
-            //request.setAuditEntity(aud);
-            doc.put("alias", request.getAlias());
-            doc.put("apiPassword", request.getApiPassword());
-            doc.put("idSystem", request.getIdSystem());
-            doc.put("mail", request.getEmail());
-            doc.put("mobilPhone", request.getMobilPhone());
-            doc.put("password", request.getPassword());
-            doc.put("salPassword", request.getSalPassword());
-            //doc.put("userName", request.getUsername());
-            doc.put("typeDocument", request.getTypeDocument());
-            doc.put("numTypeDocument", request.getNumTypeDocument());
-            doc.put("idUser", null);
-            doc.put("auditEntity", docAud);
             request.setAuditEntity(aud);
-            //save(doc);
             us = save(request);
         } catch (Exception e) {
             // Handle the exception (e.g., log it or throw a custom exception)
@@ -136,7 +124,7 @@ public class UserDaoImplement extends AbstractMongoRepositoryImpl<User> implemen
 
     @Override
     public List<User> findLastUser() {
-        MongoCollection<User> collection = getCollection( Constants.COLLECTION_USER, User.class);
+        MongoCollection<User> collection = getCollection(Constants.COLLECTION_USER, User.class);
         Document query = new Document();
         Document sort = new Document().append("id_user", -1);
         List<User> lisProduct = collection.find(query, User.class).sort(sort).limit(1).into(new ArrayList<User>());
@@ -145,7 +133,7 @@ public class UserDaoImplement extends AbstractMongoRepositoryImpl<User> implemen
 
     @Override
     public List<User> findUserById(ObjectId id) {
-        MongoCollection<User> collection = getCollection( Constants.COLLECTION_USER, User.class);
+        MongoCollection<User> collection = getCollection(Constants.COLLECTION_USER, User.class);
         Document query = new Document().append("_id", id);
         List<User> lisUser = collection.find(query, User.class).limit(1).into(new ArrayList<User>());
         return lisUser;
@@ -161,5 +149,12 @@ public class UserDaoImplement extends AbstractMongoRepositoryImpl<User> implemen
                 .build();
 
         return userDetails;
+    }
+
+    @Override
+    public List<User> listByStatus(boolean status) {
+        MongoCollection<User> collection = getCollection(Constants.COLLECTION_USER, User.class);
+        Document query = new Document().append("enabled", status);
+        return collection.find(query, User.class).into(new ArrayList<User>());
     }
 }

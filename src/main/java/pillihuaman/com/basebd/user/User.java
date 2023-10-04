@@ -4,9 +4,12 @@ import lombok.*;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import pillihuaman.com.basebd.role.Roles;
+import pillihuaman.com.basebd.role.Roles;
 import pillihuaman.com.basebd.system.System;
 import pillihuaman.com.basebd.token.Token;
 import pillihuaman.com.basebd.help.AuditEntity;
@@ -32,10 +35,8 @@ public class User implements UserDetails ,Serializable{
     @Indexed(unique = true)
     private String email;
     private String mobilPhone;
-    private String user;
     @Getter
     private String userName;
-    private String userNameP;
     private String apiPassword;
     private String passwordP;
     @Getter
@@ -46,7 +47,8 @@ public class User implements UserDetails ,Serializable{
     private String typeDocument;
     @Indexed(unique = true)
     private String numTypeDocument;
-    private Role role;
+    @DBRef
+    private List<Roles> roles;
     private List<Token> tokens;
 
     public User(User user) {
@@ -100,13 +102,6 @@ public class User implements UserDetails ,Serializable{
         this.mobilPhone = mobilPhone;
     }
 
-    public String getUser() {
-        return user;
-    }
-
-    public void setUser(String user) {
-        this.user = user;
-    }
 
     public String getUserName() {
         return userName;
@@ -116,13 +111,6 @@ public class User implements UserDetails ,Serializable{
         this.userName = userName;
     }
 
-    public String getUserNameP() {
-        return userNameP;
-    }
-
-    public void setUserNameP(String userNameP) {
-        this.userNameP = userNameP;
-    }
 
     public String getApiPassword() {
         return apiPassword;
@@ -180,13 +168,6 @@ public class User implements UserDetails ,Serializable{
         this.numTypeDocument = numTypeDocument;
     }
 
-    public Role getRole() {
-        return role;
-    }
-
-    public void setRole(Role role) {
-        this.role = role;
-    }
 
     public List<Token> getTokens() {
         return tokens;

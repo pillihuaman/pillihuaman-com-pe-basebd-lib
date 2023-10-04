@@ -8,6 +8,7 @@ D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihua
 D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\security\BcryptManager.java
 D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\help\ConstantsUseful.java
 D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\imagenTemp\dao\implement\ImagenTempDaoImplement.java
+D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\menu\Menu.java
 D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\config\MongoDBConnectionFactory.java
 D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\imagen\dao\implement\ImagenSupportDaoImplement.java
 D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\user\Permission.java
@@ -15,6 +16,7 @@ D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihua
 D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\config\AbstractMongoRepositoryImpl.java
 D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\userGeneral\implement\UserGeneralDaoImpl.java
 D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\security\VerifyProvidedPassword.java
+D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\system\dao\SystemDAO.java
 D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\config\Credenciales.java
 D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\help\JsonUtil.java
 D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\userGeneral\Mapper\MapperUser.java
@@ -23,6 +25,7 @@ D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihua
 D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\config\PasswordSerializer.java
 D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\product\dao\ProductSupportDAO.java
 D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\product\Size.java
+D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\role\Roles.java
 D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\imagenProducer\File.java
 D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\token\TokenType.java
 D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\product\dao\StockSupportDAO.java
@@ -33,7 +36,6 @@ D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihua
 D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\imagenProducer\Metadata.java
 D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\imagenProducer\ImagenFile.java
 D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\product\dao\implement\StockDaoImplement.java
-D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\user\Role.java
 D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\config\ConfigDefaults.java
 D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\config\YamlFooProperties.java
 D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\token\dao\TokenRepository.java
@@ -41,6 +43,7 @@ D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihua
 D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\config\MongoDBConfig.java
 D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\help\GenericList.java
 D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\help\Constants.java
+D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\common\MyJsonWebToken.java
 D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\product\dao\implement\ProductSupportDaoImplement.java
 D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\product\Stock.java
 D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\config\MongoDBConexion.java
@@ -54,6 +57,8 @@ D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihua
 D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\user\dao\implement\UserDaoImplement.java
 D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\token\dao\implement\TokenDaoImplement.java
 D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\help\AuditEntity.java
+D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\system\dao\implement\SystemDaoImplement.java
+D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\page\Page.java
 D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\parameter\dao\implement\ParameterDaoImplement.java
 D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\imagenTemp\ImagenTemp.java
 D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\product\Color.java

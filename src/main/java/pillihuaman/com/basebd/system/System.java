@@ -1,37 +1,50 @@
 package pillihuaman.com.basebd.system;
 
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
-import org.bson.codecs.pojo.annotations.BsonId;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
 import org.bson.types.ObjectId;
-import org.springframework.stereotype.Component;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+import pillihuaman.com.basebd.help.AuditEntity;
+import pillihuaman.com.basebd.menu.Menu;
 import pillihuaman.com.basebd.product.Size;
 
 import java.io.Serializable;
 import java.util.List;
 
-@Component
+
+@Builder
+@AllArgsConstructor
+@Data
+@Document(collection = "system")
 public class System implements Serializable {
-    private static final long serialVersionUID = 1L;
-    @BsonId
-    @JsonSerialize(using = ToStringSerializer.class)
-    private ObjectId _id;
-    private List<Size> size;
-    //private List<Color> color;
+    @Id
+    private ObjectId id;
+    private String name;
+    private String version;
+    private List<Size> sizes;
+    private Menu mainMenu;
+    private String timezone;
+    private boolean isActive;
+    private String contactEmail;
+    private String supportPhone;
+    private AuditEntity audit;
 
-    public ObjectId get_id() {
-        return _id;
+    public System() {
+
     }
 
-    public void set_id(ObjectId _id) {
-        this._id = _id;
-    }
-
-
-    public List<Size> getSize() {
-        return size;
-    }
-    public void setSize(List<Size> size) {
-        this.size = size;
+    public org.bson.Document toDocument() {
+        org.bson.Document document = new org.bson.Document();
+        document.append("name", this.name);
+        document.append("version", this.version);
+        document.append("sizes", this.sizes);
+        document.append("mainMenu", this.mainMenu);
+        document.append("timezone", this.timezone);
+        document.append("isActive", this.isActive);
+        document.append("contactEmail", this.contactEmail);
+        document.append("supportPhone", this.supportPhone);
+        return document;
     }
 }

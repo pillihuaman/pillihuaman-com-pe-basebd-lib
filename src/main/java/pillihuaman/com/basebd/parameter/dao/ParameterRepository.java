@@ -1,7 +1,7 @@
 package pillihuaman.com.basebd.parameter.dao;
 
+import pillihuaman.com.basebd.common.MyJsonWebToken;
 import pillihuaman.com.basebd.parameter.Parameter;
-import pillihuaman.com.lib.commons.MyJsonWebToken;
 import pillihuaman.com.basebd.config.BaseMongoRepository;
 
 import java.util.List;

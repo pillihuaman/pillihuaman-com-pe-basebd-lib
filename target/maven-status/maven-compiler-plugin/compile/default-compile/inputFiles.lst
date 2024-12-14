@@ -1,75 +1,80 @@
-D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\imagen\DetailImage.java
-D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\system\System.java
-D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\config\PoolOptions.java
-D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\userGeneral\UserGeneralRepositoy.java
-D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\security\PasswordUtils.java
-D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\config\YamlPropertySourceFactory.java
-D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\imagen\Imagen.java
-D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\security\BcryptManager.java
-D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\help\ConstantsUseful.java
-D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\imagenTemp\dao\implement\ImagenTempDaoImplement.java
-D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\menu\Menu.java
-D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\config\MongoDBConnectionFactory.java
-D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\imagen\dao\implement\ImagenSupportDaoImplement.java
-D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\user\Permission.java
-D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\config\AppProperties.java
-D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\config\AbstractMongoRepositoryImpl.java
-D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\userGeneral\implement\UserGeneralDaoImpl.java
-D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\security\VerifyProvidedPassword.java
-D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\system\dao\SystemDAO.java
-D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\config\Credenciales.java
-D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\help\JsonUtil.java
-D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\userGeneral\Mapper\MapperUser.java
-D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\config\Nodo.java
-D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\control\dao\ControlDAO.java
-D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\config\PasswordSerializer.java
-D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\product\dao\ProductSupportDAO.java
-D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\product\Size.java
-D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\role\Roles.java
-D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\imagenProducer\File.java
-D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\token\TokenType.java
-D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\product\dao\StockSupportDAO.java
-D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\user\User.java
-D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\imagen\dao\ImagenSupportDAO.java
-D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\imagenTemp\dao\ImagenTempDAO.java
-D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\help\RoutingKey.java
-D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\imagenProducer\Metadata.java
-D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\imagenProducer\ImagenFile.java
-D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\product\dao\implement\StockDaoImplement.java
-D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\config\ConfigDefaults.java
-D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\config\YamlFooProperties.java
-D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\token\dao\TokenRepository.java
-D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\help\Util.java
-D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\config\MongoDBConfig.java
-D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\help\GenericList.java
-D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\help\Constants.java
-D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\common\MyJsonWebToken.java
-D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\product\dao\implement\ProductSupportDaoImplement.java
-D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\product\Stock.java
-D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\config\MongoDBConexion.java
-D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\config\PoolParams.java
-D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\product\Product.java
-D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\help\ConvertClass.java
-D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\imagenProducer\dao\ImagenProducerDAO.java
-D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\parameter\dao\ParameterRepository.java
-D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\control\Control.java
-D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\help\EnumErrores.java
-D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\user\dao\implement\UserDaoImplement.java
-D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\token\dao\implement\TokenDaoImplement.java
-D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\help\AuditEntity.java
-D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\system\dao\implement\SystemDaoImplement.java
-D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\page\Page.java
-D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\parameter\dao\implement\ParameterDaoImplement.java
-D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\imagenTemp\ImagenTemp.java
-D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\product\Color.java
-D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\token\Token.java
-D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\control\dao\implement\ControlDaoImplement.java
-D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\Application.java
-D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\config\ConfigMain.java
-D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\parameter\Parameter.java
-D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\config\BaseMongoRepository.java
-D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\log\Log4J2PropertiesConf.java
-D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\common\ProductStock.java
-D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\imagenProducer\dao\implement\ImagenProducerDaoImplement.java
-D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\config\MongoDBClient.java
-D:\Alamoda\version 2023 backend\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\basebd\user\dao\UserRepository.java
+C:\Users\zarmir.pillihuaman\Documents\SISCO\alamodaperu\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\pe\basebd\config\ConfigMain.java
+C:\Users\zarmir.pillihuaman\Documents\SISCO\alamodaperu\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\pe\basebd\control\dao\implement\ControlDaoImplement.java
+C:\Users\zarmir.pillihuaman\Documents\SISCO\alamodaperu\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\pe\basebd\system\dao\SystemDAO.java
+C:\Users\zarmir.pillihuaman\Documents\SISCO\alamodaperu\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\pe\basebd\config\MongoDBConnectionFactory.java
+C:\Users\zarmir.pillihuaman\Documents\SISCO\alamodaperu\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\pe\basebd\parameter\dao\ParameterRepository.java
+C:\Users\zarmir.pillihuaman\Documents\SISCO\alamodaperu\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\pe\basebd\product\Color.java
+C:\Users\zarmir.pillihuaman\Documents\SISCO\alamodaperu\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\pe\basebd\userGeneral\UserGeneralRepositoy.java
+C:\Users\zarmir.pillihuaman\Documents\SISCO\alamodaperu\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\pe\basebd\userSetting\UserSetting.java
+C:\Users\zarmir.pillihuaman\Documents\SISCO\alamodaperu\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\pe\basebd\config\YamlPropertySourceFactory.java
+C:\Users\zarmir.pillihuaman\Documents\SISCO\alamodaperu\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\pe\basebd\user\dao\implement\UserDaoImplement.java
+C:\Users\zarmir.pillihuaman\Documents\SISCO\alamodaperu\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\pe\basebd\config\PasswordSerializer.java
+C:\Users\zarmir.pillihuaman\Documents\SISCO\alamodaperu\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\pe\basebd\employee\dao\EmployeeDAO.java
+C:\Users\zarmir.pillihuaman\Documents\SISCO\alamodaperu\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\pe\basebd\config\Credenciales.java
+C:\Users\zarmir.pillihuaman\Documents\SISCO\alamodaperu\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\pe\basebd\help\ConstantsUseful.java
+C:\Users\zarmir.pillihuaman\Documents\SISCO\alamodaperu\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\pe\basebd\user\dao\UserRepository.java
+C:\Users\zarmir.pillihuaman\Documents\SISCO\alamodaperu\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\pe\basebd\user\Permission.java
+C:\Users\zarmir.pillihuaman\Documents\SISCO\alamodaperu\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\pe\basebd\imagenProducer\dao\ImagenProducerDAO.java
+C:\Users\zarmir.pillihuaman\Documents\SISCO\alamodaperu\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\pe\basebd\imagenTemp\dao\ImagenTempDAO.java
+C:\Users\zarmir.pillihuaman\Documents\SISCO\alamodaperu\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\pe\basebd\Application.java
+C:\Users\zarmir.pillihuaman\Documents\SISCO\alamodaperu\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\pe\basebd\config\ConfigDefaults.java
+C:\Users\zarmir.pillihuaman\Documents\SISCO\alamodaperu\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\pe\basebd\product\dao\implement\StockDaoImplement.java
+C:\Users\zarmir.pillihuaman\Documents\SISCO\alamodaperu\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\pe\basebd\help\GenericList.java
+C:\Users\zarmir.pillihuaman\Documents\SISCO\alamodaperu\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\pe\basebd\help\RoutingKey.java
+C:\Users\zarmir.pillihuaman\Documents\SISCO\alamodaperu\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\pe\basebd\system\System.java
+C:\Users\zarmir.pillihuaman\Documents\SISCO\alamodaperu\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\pe\basebd\config\MongoDBConexion.java
+C:\Users\zarmir.pillihuaman\Documents\SISCO\alamodaperu\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\pe\basebd\help\ConvertClass.java
+C:\Users\zarmir.pillihuaman\Documents\SISCO\alamodaperu\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\pe\basebd\product\dao\implement\ProductSupportDaoImplement.java
+C:\Users\zarmir.pillihuaman\Documents\SISCO\alamodaperu\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\pe\basebd\imagenTemp\dao\implement\ImagenTempDaoImplement.java
+C:\Users\zarmir.pillihuaman\Documents\SISCO\alamodaperu\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\pe\basebd\imagen\Imagen.java
+C:\Users\zarmir.pillihuaman\Documents\SISCO\alamodaperu\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\pe\basebd\config\AbstractMongoRepositoryImpl.java
+C:\Users\zarmir.pillihuaman\Documents\SISCO\alamodaperu\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\pe\basebd\config\MongoDBClient.java
+C:\Users\zarmir.pillihuaman\Documents\SISCO\alamodaperu\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\pe\basebd\product\dao\StockSupportDAO.java
+C:\Users\zarmir.pillihuaman\Documents\SISCO\alamodaperu\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\pe\basebd\permission\Permission.java
+C:\Users\zarmir.pillihuaman\Documents\SISCO\alamodaperu\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\pe\basebd\userGeneral\implement\UserGeneralDaoImpl.java
+C:\Users\zarmir.pillihuaman\Documents\SISCO\alamodaperu\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\pe\basebd\imagenProducer\File.java
+C:\Users\zarmir.pillihuaman\Documents\SISCO\alamodaperu\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\pe\basebd\imagen\dao\ImagenSupportDAO.java
+C:\Users\zarmir.pillihuaman\Documents\SISCO\alamodaperu\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\pe\basebd\help\AuditEntity.java
+C:\Users\zarmir.pillihuaman\Documents\SISCO\alamodaperu\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\pe\basebd\log\Log4J2PropertiesConf.java
+C:\Users\zarmir.pillihuaman\Documents\SISCO\alamodaperu\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\pe\basebd\page\Page.java
+C:\Users\zarmir.pillihuaman\Documents\SISCO\alamodaperu\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\pe\basebd\userGeneral\Mapper\MapperUser.java
+C:\Users\zarmir.pillihuaman\Documents\SISCO\alamodaperu\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\pe\basebd\product\Size.java
+C:\Users\zarmir.pillihuaman\Documents\SISCO\alamodaperu\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\pe\basebd\employee\dao\implement\EmployeeDaoImplement.java
+C:\Users\zarmir.pillihuaman\Documents\SISCO\alamodaperu\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\pe\basebd\config\BaseMongoRepository.java
+C:\Users\zarmir.pillihuaman\Documents\SISCO\alamodaperu\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\pe\basebd\help\EnumErrores.java
+C:\Users\zarmir.pillihuaman\Documents\SISCO\alamodaperu\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\pe\basebd\config\PoolOptions.java
+C:\Users\zarmir.pillihuaman\Documents\SISCO\alamodaperu\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\pe\basebd\help\JsonUtil.java
+C:\Users\zarmir.pillihuaman\Documents\SISCO\alamodaperu\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\pe\basebd\common\MyJsonWebToken.java
+C:\Users\zarmir.pillihuaman\Documents\SISCO\alamodaperu\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\pe\basebd\control\Control.java
+C:\Users\zarmir.pillihuaman\Documents\SISCO\alamodaperu\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\pe\basebd\imagenProducer\dao\implement\ImagenProducerDaoImplement.java
+C:\Users\zarmir.pillihuaman\Documents\SISCO\alamodaperu\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\pe\basebd\product\dao\ProductSupportDAO.java
+C:\Users\zarmir.pillihuaman\Documents\SISCO\alamodaperu\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\pe\basebd\security\BcryptManager.java
+C:\Users\zarmir.pillihuaman\Documents\SISCO\alamodaperu\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\pe\basebd\parameter\Parameter.java
+C:\Users\zarmir.pillihuaman\Documents\SISCO\alamodaperu\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\pe\basebd\imagen\DetailImage.java
+C:\Users\zarmir.pillihuaman\Documents\SISCO\alamodaperu\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\pe\basebd\config\YamlFooProperties.java
+C:\Users\zarmir.pillihuaman\Documents\SISCO\alamodaperu\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\pe\basebd\token\TokenType.java
+C:\Users\zarmir.pillihuaman\Documents\SISCO\alamodaperu\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\pe\basebd\parameter\dao\implement\ParameterDaoImplement.java
+C:\Users\zarmir.pillihuaman\Documents\SISCO\alamodaperu\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\pe\basebd\config\Nodo.java
+C:\Users\zarmir.pillihuaman\Documents\SISCO\alamodaperu\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\pe\basebd\control\dao\ControlDAO.java
+C:\Users\zarmir.pillihuaman\Documents\SISCO\alamodaperu\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\pe\basebd\imagenTemp\ImagenTemp.java
+C:\Users\zarmir.pillihuaman\Documents\SISCO\alamodaperu\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\pe\basebd\employee\Employee.java
+C:\Users\zarmir.pillihuaman\Documents\SISCO\alamodaperu\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\pe\basebd\product\Stock.java
+C:\Users\zarmir.pillihuaman\Documents\SISCO\alamodaperu\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\pe\basebd\role\Roles.java
+C:\Users\zarmir.pillihuaman\Documents\SISCO\alamodaperu\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\pe\basebd\system\dao\implement\SystemDaoImplement.java
+C:\Users\zarmir.pillihuaman\Documents\SISCO\alamodaperu\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\pe\basebd\menu\Menu.java
+C:\Users\zarmir.pillihuaman\Documents\SISCO\alamodaperu\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\pe\basebd\help\Util.java
+C:\Users\zarmir.pillihuaman\Documents\SISCO\alamodaperu\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\pe\basebd\help\Constants.java
+C:\Users\zarmir.pillihuaman\Documents\SISCO\alamodaperu\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\pe\basebd\security\VerifyProvidedPassword.java
+C:\Users\zarmir.pillihuaman\Documents\SISCO\alamodaperu\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\pe\basebd\common\ProductStock.java
+C:\Users\zarmir.pillihuaman\Documents\SISCO\alamodaperu\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\pe\basebd\imagenProducer\Metadata.java
+C:\Users\zarmir.pillihuaman\Documents\SISCO\alamodaperu\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\pe\basebd\config\MongoDBConfig.java
+C:\Users\zarmir.pillihuaman\Documents\SISCO\alamodaperu\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\pe\basebd\imagen\dao\implement\ImagenSupportDaoImplement.java
+C:\Users\zarmir.pillihuaman\Documents\SISCO\alamodaperu\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\pe\basebd\token\Token.java
+C:\Users\zarmir.pillihuaman\Documents\SISCO\alamodaperu\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\pe\basebd\config\AppProperties.java
+C:\Users\zarmir.pillihuaman\Documents\SISCO\alamodaperu\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\pe\basebd\config\PoolParams.java
+C:\Users\zarmir.pillihuaman\Documents\SISCO\alamodaperu\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\pe\basebd\security\PasswordUtils.java
+C:\Users\zarmir.pillihuaman\Documents\SISCO\alamodaperu\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\pe\basebd\imagenProducer\ImagenFile.java
+C:\Users\zarmir.pillihuaman\Documents\SISCO\alamodaperu\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\pe\basebd\user\User.java
+C:\Users\zarmir.pillihuaman\Documents\SISCO\alamodaperu\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\pe\basebd\token\dao\TokenRepository.java
+C:\Users\zarmir.pillihuaman\Documents\SISCO\alamodaperu\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\pe\basebd\product\Product.java
+C:\Users\zarmir.pillihuaman\Documents\SISCO\alamodaperu\pillihuaman-com-pe-basebd\src\main\java\pillihuaman\com\pe\basebd\token\dao\implement\TokenDaoImplement.java
